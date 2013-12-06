@@ -1,0 +1,20 @@
+Geo Exercise Alert effective for Sri Lanka!
+
+A urgent priority landslide issued by Gamini Hettiarachchi
+
+Headline: A landslide has devasted the Maskeliya area
+Message: 2.49.0.1.144.1-scdmc.hih-1354628272 from scdmc-alert-srv@samanathetha.lk sent at 2012-12-11 08:12:58 is a Exercise, Restricted (Community Emergency Response Team) Alert.
+
+This Extreme category - Geo - event is Immediate and is Observed.
+
+Description: A landslide event was reported at 20:15 on 2012-12-11 by the NBRO. The incident has disrupted the railroad from Nanooya to badulla and affected 10 households in the area.  
+
+Response Type: Evacuate
+
+Instruction(s): Activate your response plans.
+
+Alert is effective from: 2012-12-11T21:00:00+05:30 and will expire on: 2012-12-12T21:00:00+05:30
+
+For more details use the following sources -
+Web: http://samanathetha.lk/sahana/recent/alerts
+call: +941125551212

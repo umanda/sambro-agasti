@@ -1,0 +1,6 @@
+HAZARD in affect for LOCATION: Draft Alert for  area with high priority HAZARD issued by PM
+Msg: 2.49.0.1.144.1-scdmc.hih-1353571731 sent on 2012-11-22 03:11:30.
+Desc: A HAZARD event is in effect for LOCATIONS. Execute your emergency response plans.
+More details 
+Web: 
+call: 

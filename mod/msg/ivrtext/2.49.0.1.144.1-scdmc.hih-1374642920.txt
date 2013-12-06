@@ -1,0 +1,20 @@
+Met Exercise Alert effective for Philippines!
+
+A high priority tropical cyclone issued by Nuwan
+
+Headline: A category NUMBER tropical cyclone is in affect for COUNTRY
+Message: 2.49.0.1.144.1-scdmc.hih-1374642920 from itu_demo_alert_srv@110.164.198.195 sent at 2013-07-24 10:07:39 is a Exercise, Restricted (ITU workshop participants) Alert.
+
+This Severe category - Met - event is Expected and is Observed.
+
+Description: A category 4 tropical cyclone has been detected by the PH Met Dept.The cyclone is currently 150 Km off the West coast of Philippines travelling in a Easterly direction. It is expected to pass through land at 18:00 on 2013-07-24. The cyclone is expected to generate wind speeds up to 30 Kmph. You are advised to exercise safety measures.
+
+Response Type: Shelter
+
+Instruction(s): 
+
+Alert is effective from: 2013-07-24T13:00:00+05:30 and will expire on: 2013-07-26T13:00:00+05:30
+
+For more details use the following sources -
+Web: http://110.164.198.195/sahana/recent/alerts
+call: +615551212

@@ -1,0 +1,6 @@
+A DISEASENAME outbreak is in affect for LOCATION: Draft Alert for  area with  priority Disease Outbreak issued by 
+Msg: 2.49.0.1.144.1-scdmc.hih-1353571693 sent on 2012-11-22 03:11:35.
+Desc: An escalating number of DISEASENAME have been reported for LOCATION. The ORGANIZATION claims NUMBER of people to be affected.The outbreak started on DATE and is expected to spread in AREAS. 
+More details 
+Web: http://110.164.198.195/sahana/recent/alerts
+call: +TELEPHONENUMBER

@@ -1,0 +1,20 @@
+Rescue Exercise Alert effective for !
+
+A  priority floods issued by Mr. E (DG)
+
+Headline: Heavy rains in BKK
+Message: 2.49.0.1.144.1-scdmc.hih-1353571550 from itu_demo_alert_srv@110.164.198.195 sent at 2012-11-30 02:11:24 is a Exercise, Restricted (ITU workshop participants) Alert.
+
+This  category - Rescue - event is  and is .
+
+Description: ITU NBTC has reported severe flash floods in LOCATIONS. The event began on 21Nov and is expected to continue over the next 5 of days affecting NUMBER of people in the LOCATIONS.
+
+Response Type: Evacuate
+
+Instruction(s): Flash floods are a sudden local flood, typically due to heavy rain.
+
+Alert is effective from: 2012-11-22T15:15:00+05:30 and will expire on: 2012-11-26T15:15:00+05:30
+
+For more details use the following sources -
+Web: http://110.164.198.195/sahana/recent/alerts
+call: +TELEPHONENUMBER

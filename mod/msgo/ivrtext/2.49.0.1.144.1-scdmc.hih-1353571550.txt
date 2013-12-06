@@ -1,0 +1,6 @@
+Heavy rains in BKK: Exercise Alert for  area with  priority floods issued by Mr. E (DG)
+Msg: 2.49.0.1.144.1-scdmc.hih-1353571550 sent on 2012-11-22 03:11:45.
+Desc: ITU NBTC has reported severe flash floods in LOCATIONS. The event began on 21Nov and is expected to continue over the next 5 of days affecting NUMBER of people in the LOCATIONS.
+More details 
+Web: http://110.164.198.195/sahana/recent/alerts
+call: +TELEPHONENUMBER

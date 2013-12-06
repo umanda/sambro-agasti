@@ -1,0 +1,15 @@
+
+This is a(n) Draft Alert 
+Test
+unknown priority Geo event is(are) effective for .
+
+The Geo event is(are) immediate and is observed.
+
+Alert was issued by Tharaka
+
+It is Public to .
+.
+
+Alert is effective from: 2012-11-07T20:38:00-11:30 and will expire on: 2012-11-17T20:38:00-11:30.
+
+For more details call: 

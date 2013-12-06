@@ -1,0 +1,20 @@
+Met Actual Alert effective for Mongolia!
+
+A urgent priority severe winter weather issued by Hijaba 
+
+Headline: A dzud event is in affect for LOCATION
+Message: 2.49.0.1.144.1-scdmc.hih-1358226889 from jasil_alert_srv@cbnrm.mn sent at 2013-01-15 06:01:38 is a Actual, Restricted (Herders) Alert.
+
+This Extreme category - Met - event is Immediate and is Observed.
+
+Description: On 2013-01-15 at 23:00:00 the Meteorological Department detected a severe winter storm developing in Northern Mongolia. It is expected to escalate affecting populations in LOCATIONS. The temperature will be -22 Centigrade with a 12 KMPH wind speeds causing a wind chill factor of -26 Centigrade. Herders are advised to execute their response plans in securing their livestock and homesteads in preparation for the DZUD event.
+
+Response Type: Execute
+
+Instruction(s): wind chill is the felt air temperature on exposed skin due to wind
+
+Alert is effective from: 2013-01-16T12:15:00+05:30 and will expire on: 2013-01-22T12:15:00+05:30
+
+For more details use the following sources -
+Web: 
+call: 

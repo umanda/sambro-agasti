@@ -1,0 +1,15 @@
+
+This is a(n) Draft Alert 
+test
+unknown priority Geo event is(are) effective for Thailand.
+
+The Geo event is(are) immediate and is observed.
+
+Alert was issued by tharaka
+
+It is Public to .
+.
+
+Alert is effective from: 2012-11-07T23:04:00+05:30 and will expire on: 2012-11-30T23:04:00+05:30.
+
+For more details call: 

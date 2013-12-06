@@ -1,0 +1,20 @@
+ Exercise Alert effective for !
+
+A low priority floods issued by Solongo
+
+Headline: Heavy rains in Bangkok have caused severe flash floods
+Message: 2.49.0.1.144.1-scdmc.hih-1353571727 from itu_demo_alert_srv@110.164.198.195 sent at 2012-11-22 03:11:29 is a Exercise, Restricted (ITU workshop participants) Alert.
+
+This Moderate category -  - event is Expected and is Observed.
+
+Description: The ORGANIZATION has reported severe flash floods in Bangkok. The event began on 23 Nov and is expected to continue over the next 1 of days affecting 200 of people in the Bangkok.
+
+Response Type: 
+
+Instruction(s): Flash floods are a sudden local flood, typically due to heavy rain.
+
+Alert is effective from: 2012-11-22T16:14:00+05:30 and will expire on: 2012-11-22T16:15:00+05:30
+
+For more details use the following sources -
+Web: http://110.164.198.195/sahana/recent/alerts
+call: +TELEPHONENUMBER

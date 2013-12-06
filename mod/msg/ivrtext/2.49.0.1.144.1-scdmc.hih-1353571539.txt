@@ -1,0 +1,15 @@
+
+This is a(n) Exercise Alert 
+Heavy rains in Bangkok has caused severe flash floods
+high priority Met, Env, Safety, Transport event is(are) effective for Thailand.
+
+The Met, Env, Safety, Transport event is(are) Expected and is Observed.
+
+Alert was issued by Dr. Kariwasam (DG)
+
+It is Restricted to ITU workshop participants.
+Flash floods are a sudden local flood, typically due to heavy rain..
+
+Alert is effective from: 2012-11-22T16:14:00+05:30 and will expire on: 2012-11-27T16:14:00+05:30.
+
+For more details call: +66555121212

@@ -1,0 +1,20 @@
+Geo Draft Alert effective for !
+
+A urgent priority Test issued by Tharaka
+
+Headline: Test
+Message: 2.49.0.1.144.1-scdmc.hih-1353519318 from At Prision sent at 2012-11-21 11:11:21 is a Draft, Public () Alert.
+
+This Extreme category - Geo - event is Immediate and is Observed.
+
+Description: 
+
+Response Type: Shelter
+
+Instruction(s): 
+
+Alert is effective from: 2012-11-07T23:05:00-11:30 and will expire on: 2012-11-17T23:05:00-11:30
+
+For more details use the following sources -
+Web: 
+call: 

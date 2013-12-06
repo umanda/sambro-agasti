@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ptable>
+
+   <element>
+      <name>Hydrogen</name>
+      <symbol>H</symbol>
+      <number>1</number>
+   </element>
+
+   <element>
+      <name>Lithium</name>
+      <symbol>Li</symbol>
+      <number>3</number>
+   </element>
+
+   <element>
+      <name>Sodium</name>
+      <symbol>Na</symbol>
+      <number>11</number>
+   </element>
+   <!-- snip -->
+</ptable>
+
