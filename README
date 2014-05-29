@@ -1,15 +1,15 @@
-6th March 2009
+2014 June 01
 
-Sahana - README
+CAPITUS - README
 ===============
 
-Sahana is a Free and Open Source Disaster Management System.It mainly facilitates management of Missing people, disaster victims, Managing and administrating various organisations, managing camps and managing requests and assistance in the proper distribution of resources.
+CAPITUS is a Free and Open Source Disaster Management System.It mainly facilitates management of Missing people, disaster victims, Managing and administrating various organisations, managing camps and managing requests and assistance in the proper distribution of resources.
 
 version - trunk
 ----------------
 http://www.sahana.lk/
 
-Copyright (C) 2005 Lanka Software Foundation [http://www.opensource.lk/]
+Copyright (C) 2014 International Telecommunication Union [http://www.itu.int/]
 
 This software is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -35,27 +35,13 @@ Requirements:
 
 Demo:
 
-        http://demo.sahana.lk/
+        http://www.samanathetha.lk/capitus/
 
 Download:
     
     o Download the latest Sahana release in your preferred format from,
         
-        http://download.sahana.lk
-
-    o In order to get Sahana on Debian GNU/Linux or a Debian based distro 
-      (like Ubuntu, Knoppix, Mepis, etc.), you can add following to your 
-      /etc/apt/sources.list,
-
-        deb http://sahana.lk/apt stable main
-
-      and do,
-
-        apt-get update && apt-get install sahana
-      
-      to upgrade from an older Sahana version to a newer version,
-
-        apt-get upgrade
+        http://github.com/sambro
         
         
 Install:
@@ -64,32 +50,30 @@ Install:
 
 Support:
 
-    Sahana is developed through a distributed development environment. Therefore, e-mail is
-    the preferred way to discuss various items. Most of the conversations regarding the 	development of Sahana
-    is managed through the "sahana-maindev" mailinglist.
+    CAPITUS is developed through a distributed development environment. Therefore, e-mail is
+    the preferred way to discuss various items. Most of the conversations regarding the 	development of CAPITUS
+    is managed through the "info [at] capitus [dot] com" mailinglist.
     
-        https://lists.sourceforge.net/lists/listinfo/sahana-maindev
+        https://lists.sourceforge.net/lists/listinfo/capitus-maindev
 
     For those who want more general discussion on Humanitarian ICT,
 
         http://groups.yahoo.com/group/humanitarian-ict/
 
-    The Sahana community also hangs out on an IRC channel,
-
         #sahana on freenode
 
 Other:
 
-    Sahana specification,
+    CAPITUS specification,
 
         http://www.reliefsource.org/foss/index.php/Sahana
 
-    Sahana Development Wiki for contributors,
+    CAPITUS Development Wiki for contributors,
 
-        http://www.sahana.lk/wiki/
+        http://www.capitus.com/wiki/
 
 
 Enjoy!!!
 
-    Sahana Community
+    CAPITUS Administration
 
