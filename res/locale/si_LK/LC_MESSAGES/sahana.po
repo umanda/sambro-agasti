@@ -10583,7 +10583,7 @@ msgid "User name cannot be part of the password"
 msgstr ""
 
 #: ../inst/setup.inc:149
-msgid "Sahana Web Setup - Step 1"
+msgid "CAPITUS Web Setup - Step 1"
 msgstr "සහන ජාල සැකසුම - පියවර 1"
 
 #: ../inst/setup.inc:151

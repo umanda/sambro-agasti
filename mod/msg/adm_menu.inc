@@ -10,7 +10,7 @@
 *
 * @author     Mifan Careem <mifan@respere.com>
 * @copyright  Respere - http://respere.com/
-* @package	  Sahana - http://sahana.lk/
+* @package	  SAMBRO - http://SAMBRO.lk/
 * @subpackage msg
 * @version 	  $Id: adm_menu.inc,v 1.3 2008/04/30 05:56:29 mifanc Exp $
 * @license	  http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)

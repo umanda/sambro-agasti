@@ -59,101 +59,140 @@ function shn_admin_field_option_config(){
 
 function shn_admin_default()
 {
-	global $global;
-	global $conf;
-	$db = $global['db'];
-	include_once $global['approot']. 'inc/lib_security/lib_acl.inc';
 
-	$result = $db->Execute("SELECT * FROM incident");
-	$isDisasterNamed = ((isset($result) && $result)?($result->RecordCount() > 0):false);
+    global $conf;
+    
+    ?>
 
-	$result = $db->Execute("SELECT * FROM location");
-	$isLocationsEntered = ((isset($result) && $result)?($result->RecordCount() > 0):false);
+<div id="home">
+<img width="100%" src="res/img/cap-banner.png" style="padding-bottom:5px; margin-top:-10px">
+<h2>ADMINISTRATOR RESOURCE CENTER</h2>
 
-	$isSecurityEnabled = $conf['acl_enabled'];
-
-	$result = $db->Execute("SELECT * FROM ct_catalogue");
-	$isCatalogCreated = ((isset($result) && $result)?($result->RecordCount() > 0):false);
-
-	$result = $db->Execute("SELECT value FROM config WHERE module_id='admin' AND confkey='gis_dflt'");
-	$isGISSetup = ((isset($result) && $result)?($result->fields['value'] != ""):false);
-
-	echo '<div id="home">';
-
-	if(!$isLocationsEntered || !$isGISSetup || !$isCatalogCreated
-	|| !$isDisasterNamed) {
-		echo '<h2>'._t('Finalize Your Sahana Installation')."</h2>\n";
-		echo "<p>"._t("There are still a few steps to be performed before you
-                can start using your Sahana installation effectively.
-                These items are given in priority order below:")."</p>\n";
-	}
-	echo "<ol>\n";
-	if(!$isDisasterNamed) {
-		echo '<li><b>'._t('Add Disaster Name').'</b>'._t(' - As this system can handle
-                multiple disasters in the same system you need to
-                first add the name of the first disaster you are using
-                Sahana for. To do this in the navigation bar click on ').
-                '&#34;'._t('Disaster Incidents').'&#34;'.
-		_t(' followed by ').'<a href="?mod=admin&act=ims_level1">'
-		.'&#34;'._t('Manage Disaster').'&#34;'.'</a> '.
-		_t('and add the disaster name.').'</li><br/>';
-	}
-
-	if(!$isLocationsEntered) {
-		echo '<li><b>'._t('Add Locations').'</b>'._t(' - Please enter some of the
-                regions affected in the disaster by clicking the
-                navigation bar on ').
-                '&#34;'._t('Location Hierarchy').'&#34;'.
-		_t(' followed by ').'<a href="?mod=admin&act=add_loc">'.
-                '&#34;'._t('Add New Location').'&#34;'.'</a></li><br/>';
-	}
-	if(!$isCatalogCreated) {
-		echo '<li><b>'._t('Create the Aid Catalog').'</b>'._t(' - The catalog
-                of aid items has to be defined to use
-                the Pledge/Request Management System and Inventory Management,
-                you need to define the type of aid items available. To do this
-                click on the').'<a href="?mod=cs&act=default">'.
-                '&#34;'._t('Catalog System').'&#34;'.'</a> '._t('in the navigation bar and start adding
-                aid items for the disaster').'</li><br/>';
-	}
-	if(!$isGISSetup) {
-		echo '<li><b>'._t('Configure Geographical Information System (GIS) | Mapping').'</b>'._t(' - To configure GIS/Mapping in Sahana ').
-		_t('visit the ')
-		.'<a href="?mod=admin&act=gis_main">'.
-                '&#34;'._t('GIS Configuration').'&#34; '.'</a>'._t('section.').'</li><br/>';
-	}
-
-	if(!$isSecurityEnabled) {
-		?>
-<font color="red"><?=_t("Current Security state: Disabled")?></font>
-		<?php
-
-		echo '<li><b>'. _t('Configure Default Security').'</b>'._t(' - By default Sahana is installed with open access. To prevent unauthorized access to the system enable logins and security by clicking ').'&#34;'.'<a href="?mod=admin&act=acl_enable_acl">'._t('Enable Security.').'</a>&#34;</li>';
-	}
-
-	echo "</ol>\n";
-	?>
-<h2><?=_t("Sahana System Administration")?></h2>
-<p><?=_t("The System Administration section allows you to configure and customize Sahana based on your requirements. Each section on the Administration menu is grouped by the section. These sections are described below:")?></p>
+<table border="0">
+  <tr>
+    <td valign="top" width="300"><p>
+	<strong>What is CAPITUS Administration?</strong></p>
+<p>The main function for an Administrator is granting and revoking user permissions. When a user requests for permission to use CAPITUS: 
 <ul>
-	<li><b><?=_t("Locations Hierarchy")?></b> <br />
-	<?=_t("Add, modify and customized the affected locations and hierachies in the disaster")?></li>
-	<li><b><?=_t("GIS Configuration")?></b> <br />
-	<?=_t("Specify your mapping configuration and preferred mapping/GIS system to be used in Sahana")?></li>
-	<li><b><?=_t("Module Configuration")?></b> <br />
-	<?=_t("Contains specific configuration pages for each module that has been installed in the system allowing them to be customized individually and seperately.")?>
-	</li>
-	<li><b><?=_t("System Security")?></b> <br />
-	<?=_t("Allows the system administrator to configure who gets access to what modules and actions available in Sahana")?></li>
-	<li><b><?=_t("Language / Locale")?></b> <br />
-	<?=_t("Translate the Sahana interface and terminology to a local language and that relevant for the disaster")?></li>
-	<li><b><?=_t("Disaster Levels")?></b> <br />
-	<?=_t("Define multiple disasters, sub incidents and events that this instance of Sahana will handle")?></li>
-	<li><b><?=_t("Config Utils")?></b> <br />
-	<?=_t("This section give you access to all technical configuration details and tools that can be changed in the system")?></li>
+  <li>Grant permissions to that use through <strong>User Management</strong> sub menu within the <strong>System Security</strong> options</li>
+  <li>Click on User Management submenu, then access the <strong>Edit Roles of a User</strong></li>
+  <li>Select the user to grant permission and submit, that's it!</li>
 </ul>
+</p></td>
+    <td valign="top">
+      <p><strong>Reference material</strong></p>
+       <ul>
+          <li><a href="https://github.com/waidyanatha/sambro-agasti/wiki/users#edit-roles">Quick Guide: Editing Roles of a User</a></li><br>
+          <li><a href="https://github.com/waidyanatha/sambro-agasti/wiki/users">Wiki on the System's Users</a></li><br>
+	  <li><a href="http://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.html">What is CAP Version 1.2?</a></li>
+       </ul>
+    </td>
+
+    <td valign="top">
+      <p><strong>Video on setting user permissions</strong></p>
+	<iframe width="300" height="180" src="//www.youtube.com/embed/n0iKp60jjtY?list=PL23CB283949653EDC" frameborder="0" allowfullscreen></iframe>
+    </td>
+  </tr>
+</table>
+
+<div style="box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;">
+<h3 style="padding:5px">FAQ</h3>
 </div>
-	<?php
+
+<?php
+ class rss {
+     var $feed;
+
+  function rss($feed) 
+    {   $this->feed = $feed;  }
+ 
+  function parse() 
+    {
+    $rss = simplexml_load_file($this->feed);
+    
+
+    $rss_split = array();
+    foreach ($rss->channel->item as $item) {
+
+    $title = (string) $item->title; // Title
+    $link   = (string) $item->link; // Url Link
+    $description = (string) $item->description; //Description
+    $rss_split[] = '<div>
+        <a href="'.$link.'" target="_blank" title="" >
+            '.$title.' 
+        </a>
+   <hr>
+          </div>
+';
+    }
+    return $rss_split;
+  }
+  function display($numrows,$head) 
+  {
+    $rss_split = $this->parse();
+
+    $i = 0;
+    $rss_data = '<div class="vas">
+           <div class="title-head">
+         '.$head.'
+           </div>
+         <div class="feeds-links">';
+    while ( $i < $numrows ) 
+   {
+      $rss_data .= $rss_split[$i];
+      $i++;
+    }
+    $trim = str_replace('', '',$this->feed);
+    $user = str_replace('&lang=en-us&format=rss_200','',$trim);
+    $rss_data.='</div></div>';
+    return $rss_data;
+  }
+}
+?>
+<style>
+.vas{
+    float:left;
+    width:30%;
+    padding:10px;
+}
+.title-head {
+    font-size:18px;
+    font-weight:bold;
+    text-align:left;
+    background-color:#006699;
+    color:#FFFFFF;
+    padding:5px;}
+.feeds-links {
+    text-align:left;
+    padding:5px;
+    border:1px solid #dedede;
+ }
+</style>
+
+<div>
+  <?php
+  include('rssclass.php');
+  $feedlist = new rss('http://www.gdacs.org/xml/rss.xml');
+  echo $feedlist->display(3,"Latest disaster alerts ");
+  /*
+  $feedlist = new rss('http://www.wmo.int/rss/index.php');
+  echo $feedlist->display(3,"WMO");
+  */
+ 
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/storms?format=xml');
+  echo $feedlist->display(3,"Storms News");
+
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/natural_disasters?format=xml');
+  echo $feedlist->display(3,"Natural Disasters News");
+
+
+  ?> 
+  </div>
+
+
+</div>
+
+<?php
 }
 
 function shn_admin_modadmin()

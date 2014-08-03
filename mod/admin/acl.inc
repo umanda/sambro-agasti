@@ -22,6 +22,7 @@ include_once $global['approot']. 'inc/lib_security/lib_auth.inc';
 include_once $global['approot'].'inc/lib_security/acl_form.inc';
 include_once $global['approot']."/inc/lib_errors.inc";
 include_once $global['approot']."/inc/lib_validate.inc";
+include_once $global['approot']."/mod/msg/lib_mail.inc";
 include_once "menu.inc";
 
 
@@ -302,6 +303,8 @@ function  _shn_admin_acl_user_edit_roles()
 
 function _shn_admin_acl_user_edit_roles_cr($module=NULL,$error=false)
 {
+	global $global;
+        $db=$global["db"];
 	$perm_string=$_POST{"perms"};
 	$perms=explode(";",$perm_string);
 	$users=explode(":",$_POST{"users"});
@@ -331,7 +334,15 @@ function _shn_admin_acl_user_edit_roles_cr($module=NULL,$error=false)
 		$name=$user.$role;
 
 		if(isset($_POST{trim($name)})) {
-			shn_acl_adduser_to_role($user,$role);
+			$res=shn_acl_adduser_to_role($user,$role);
+	
+			if($res==true) {
+                $qry = "select p.full_name, u.user_name from person_uuid as p inner join users as u on p.p_uuid = u.p_uuid where p.p_uuid = '{$user}'";
+                $rs=$db->Execute($qry);
+                $fullname = $rs->fields['full_name'];
+                $email = $rs->fields['user_name'];
+                _shn_msg_send_mail_confirm_user($fullname,$email);
+                      }
 		}
 	}
 	$user=ADMINUSER;

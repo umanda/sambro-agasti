@@ -122,10 +122,11 @@ function shn_msg_cap_select_delivery_type($id = null,$full_message_xml=null)
 
 function shn_msg_cap_transform_message($delivery_type)
 {
-	//print $delivery_type;
+//	print $delivery_type." =mdelivery Type";
 	global $global;
 	include_once $global['approot'].'/mod/msg/xsl_convert.inc';
 	$output_message = shn_msg_xsl_transform($_SESSION['msg']['send']['xml_id'],$delivery_type);
+//print $output_message." = output message";
 	shn_msg_alert_show_converted_message_send_form($output_message,$delivery_type);
 }
 

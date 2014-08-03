@@ -169,6 +169,7 @@ function shn_valid_email($field,$required=false)
 
    if (!eregi($validEmailExpr, $field))
    {
+      add_error(_t("Invalid Email, Please provide valid email address"));
       return false;
    }
 /*

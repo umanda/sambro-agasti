@@ -159,13 +159,20 @@ font-family:garmond;
     				div#modmenuwrap ul ul li a:visited { border-top: #08B 1px solid; border-bottom: #069 1px solid; }
     				div#modmenuwrap ul ul li a:hover { background-color: #069; border-top: #058 1px solid; border-bottom: #07A 1px solid; }
 
-			div#loginform { background: url(img/wrapper_bk.png) #FFF repeat-y left top;padding: 0 10px; width: 100px; 	margin-top: 1em; margin-bottom:6.2em; float: left; clear: left; }
-				div#loginform form fieldset { background: url(img/wrapper_bk.png) #FFF repeat-y left top;padding: 10px; border-color: #DED; border-width: 2px; border-style: groove; }
-				div#loginform form legend { font-size: 120%; color: #555;background: url(img/wrapper_bk.png) #FFF repeat-y left top; }
-				div#loginform form label { background: url(img/wrapper_bk.png) #FFF repeat-y left top;}
-				div#loginform form input#userName, 
-				div#loginform input#pswd { margin-right: 10px; width:140px; }
 
+
+div#loginform { position:absolute; right: 120px; top:3px;/*  background: url(img/wrapper_bk.png) #FFF repeat-x left top; padding: 0 10px; width: 400px; margin-top: 1em; margin-bottom:6.2em;  float: left; clear: left;*/ }
+
+div#loginform form fieldset { background: url(img/wrapper_bk.png) #FFF repeat-x repeat-y left top;padding: 10px; border-color: #DED; border-width: 2px; border-style: groove; }
+
+div#loginform form legend { font-size: 120%; color: #555;background: url(img/wrapper_bk.png) #FFF repeat-x repeat-y left top; }
+
+div#loginform form label { background: url(img/wrapper_bk.png) #FFF repeat-y left top;}
+
+div#loginform form input#userName,
+div#loginform input#pswd { margin-top: 28px; width:140px; }
+
+	
 			#openid_login { background: url(img/login-openid.gif) no-repeat; background-color: #fff; background-position: center left; color: #000; width: 122px; padding-left: 18px; }
 
 			div#openid_loginform { padding: 0 10px; width: 100px; margin-top: 1em; margin-bottom: 6.2em; float: left; clear: left; }

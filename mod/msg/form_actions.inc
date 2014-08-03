@@ -9,7 +9,7 @@
 *
 * @author     Mifan Careem <mifan@respere.com>
 * @copyright  Respere - http://respere.com/
-* @package	  Sahana - http://sahana.lk/
+* @package	  SAMBRO
 * @subpackage Messaging
 * @version 	  $Id: form_actions.inc,v 1.2 2008/04/30 05:56:58 mifanc Exp $
 * @license	  http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
@@ -144,7 +144,7 @@ function shn_msg_send_message(){
 	global $global;
 	$rset = $global['db']->AutoExecute('msg_ivr_alert', $insert_file_array, 'INSERT');
 	$var_name = $_SESSION['ivr_var_name'];	
-	
+//echo $var_name;	
 	if($var_name == 'message_voice_ivr'){
 	
 		add_confirmation(_t('IVR information saved successfully'));
@@ -156,8 +156,7 @@ function shn_msg_send_message(){
 
 	if($var_tweet == 'short_to_tweet'){
 		
-		shn_mod_tweet($msg_tweet);
-		add_confirmation(_t('TWEET information posted successfully'));		
+		shn_mod_tweet($msg_tweet);	
 	
 	}
 	

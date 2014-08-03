@@ -64,7 +64,7 @@ function shn_get_allowed_mods_current_user(){
 	if(shn_acl_is_enabled()==true){
 		$user=shn_current_user();
 		if($user==null){
-			$roles[ANONYMOUS]="Anonymous User";
+			$roles[ANONYMOUS]="Authorized User";
 		}else{
 			$roles=_shn_acl_get_roles($user);
 		}
@@ -100,7 +100,7 @@ function shn_get_enabled_mods_current_user(){
 
 	$user=shn_current_user();
 	if($user==null){
-		$roles[ANONYMOUS]="Anonymous User";
+		$roles[ANONYMOUS]="Authorized User";
 	}else{
 		$roles=_shn_acl_get_roles($user);
 	}
@@ -357,6 +357,7 @@ function shn_acl_deluser_roles($users){
  *@access public
  */
 function shn_acl_adduser_to_role($user,$role){
+//	require_once($global['approot'].'/mod/msg/lib_mail.inc');
 	global $global;
 	$db=$global['db'];
 	// Insert a new user,group mapping into the sys_user_to_group table
@@ -366,6 +367,20 @@ function shn_acl_adduser_to_role($user,$role){
 	if($res==false){
 		add_error($db->ErrorMsg());
 	}
+/* 
+	
+	if($res==true) {
+		$qry = "select p.full_name, u.user_name from person_uuid as p inner join users as u on p.p_uuid = u.p_uuid where p.p_uuid = '{$user}'";
+		$rs=$db->Execute($qry);
+		$fullname = $rs->fields['full_name'];
+		$email = $rs->fields['user_name'];
+		echo $user."|".$role."=";
+		//_shn_msg_send_mail_confirm_user($fullname,$email);
+		
+	}
+	if($res==true) {
+		echo $user."|".$role."=";
+	}*/
 	return $res;
 }
 
@@ -383,7 +398,7 @@ function _shn_acl_get_roles($user=rtbp,$anonymous=true){
 	$res=$db->Execute($q);
 	if(($res==null) ||($res->EOF)){
 		if($anonymous==true){
-			$roles[ANONYMOUS]="Anonymous User";
+			$roles[ANONYMOUS]="Authorized User";
 		}
 		return $roles;
 	}

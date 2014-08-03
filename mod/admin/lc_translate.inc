@@ -28,7 +28,7 @@ if(!function_exists('file_put_contents')) {
     }
 }
 ?>
-<h5><?=_t("Sahana Localization Module") ?></h5>
+<h5><?=_t("SAMBRO Localization Module") ?></h5>
 <h5><?=_t("Language Translation") ?></h5>
 <h5><?php print _t("Current language : ") . _lc($lc) ?></h5>
 <table class="layout">

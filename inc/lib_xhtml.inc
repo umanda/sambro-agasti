@@ -28,7 +28,7 @@ function shn_display_xhtml_head( $arrPostfix = null, $theme = null, $title = nul
 
     # set the theme if it is not given as a parameter
     $theme || $theme = $conf['theme'];
-    $title || $title = _t("RTBP");
+    $title || $title = _t("CAPITUS");
 
 ?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

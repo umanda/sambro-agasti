@@ -17,7 +17,7 @@
 * @author		Mifan Careem <mifan@respere.com>
 * @author		Pradeeper <pradeeper@respere.com>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package		sahana
+* @package		SAMBRO
 * @subpackage   msg
 * @tutorial
 * @version		$Id: main.inc,v 1.32 2008/08/02 15:29:45 priyanga Exp $
@@ -48,7 +48,7 @@ include_once $global['approot']."/mod/msg/form_actions.inc";
 
 include_once $global['approot']."/mod/msg/handler_view_voice_alerts.inc";
 
-include_once $global['approot']."/mod/msg/add_location.inc";
+include_once $global['approot']."/mod/bsm/add_location.inc";
 
 include_once 'lib_msg_rss.inc';
 include_once 'lib_alert.inc';
@@ -73,68 +73,59 @@ function shn_msg_mainmenu()
     shn_mod_menuopen($conf['mod_msg_name']);
     shn_mod_menuitem("default", "Home", $module) ;
     
-    shn_sub_mod_menuopen("Contacts");
+    shn_sub_mod_menuopen("Subscribers");
 //     shn_sub_mod_menuitem("contacts",_("Contacts"),$module);
-    shn_sub_mod_menuitem("contact_individual",_("Add Contact"),$module);
-    //shn_sub_mod_menuitem("edit_contact_individual",_("Edit Contact"),$module);
-    shn_sub_mod_menuitem("contact_group",_("Contact List"),$module);
+    shn_sub_mod_menuitem("contact_individual",_("Add Subscriber"),$module);
+    //shn_sub_mod_menuitem("edit_contact_individual",_("Edit Subscriber"),$module);
+    shn_sub_mod_menuitem("contact_group",_("Subscriber List"),$module);
     shn_sub_mod_menuitem("add_contact_group",_("Add Group"),$module);
 //    shn_sub_mod_menuitem("add_group",_("Add Adhoc Group"),$module);
 //    shn_sub_mod_menuitem("edit_group",_("Edit Adhoc Group"),$module);
     shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Message Templates");
-    shn_sub_mod_menuitem("add_store_msg",_("Create a Message"),$module);
+  //  shn_sub_mod_menuopen("Message Templates");
+//    shn_sub_mod_menuitem("add_store_msg",_("Create a Message"),$module);
 //    shn_sub_mod_menuitem("add_temp_msg",_("Create Template Message"),$module);
-    shn_sub_mod_menuclose();
+   // shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Quick Messages");
-    shn_sub_mod_menuitem("send_console",_("Send Message"));
+    //shn_sub_mod_menuopen("Quick Messages");
+   // shn_sub_mod_menuitem("send_console",_("Send Message"));
 //     shn_sub_mod_menuitem("customized_messaging", _("Quick Messaging"), $module);
 //     shn_sub_mod_menuitem("send_group",_("Quick Group Messaging"),$module);
-    shn_sub_mod_menuitem("receive_console",_("View Receive Messages"));
-    shn_sub_mod_menuclose();
+   // shn_sub_mod_menuitem("receive_console",_("View Receive Messages"));
+  //  shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Reports");
+    shn_sub_mod_menuopen("Delivery Reports");
     shn_sub_mod_menuitem("sent_rpt",_("Sent Messages"),$module);
     shn_sub_mod_menuitem("rcvd_rpt",_("Received Messages"),$module);
 //     shn_sub_mod_menuitem("contact_rpt",_("Contact List"),$module);
 //     shn_sub_mod_menuitem("list_group",_("List Adhoc Group"),$module);
     shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Surveys");
-    shn_sub_mod_menuitem("send_survey", _("Send a Survey"), $module);
-    shn_sub_mod_menuitem("survey_rpt",_("View Survey Reports"),$module);
-    shn_sub_mod_menuclose();
+    //shn_sub_mod_menuopen("Surveys");
+    //shn_sub_mod_menuitem("send_survey", _("Send a Survey"), $module);
+    //shn_sub_mod_menuitem("survey_rpt",_("View Survey Reports"),$module);
+   // shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Alerts");
-    	shn_sub_mod_menuitem("new_alert",_("Create New Alert"),$module);
-    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
-//    	shn_sub_mod_menuitem("view_voice_alert",_("View Voice Alerts"),$module);
-//    	shn_sub_mod_menuitem("del_alert",_("Remove"),$module);
-    shn_sub_mod_menuclose();
-    shn_sub_mod_menuopen("Published Alerts");
-    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
-    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
-    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
-    shn_sub_mod_menuclose();
-    shn_sub_mod_menuopen("Alert Templates");
+    shn_sub_mod_menuopen("Manage CAP Templates");
     	shn_sub_mod_menuitem("new_alert_temp",_("Add New Template"),$module);
     	shn_sub_mod_menuitem("view_alert_temp",_("Edit Templates"),$module);
 //    	shn_sub_mod_menuitem("update_alert_temp",_("Update"),$module);
 //    	shn_sub_mod_menuitem("del_alert_temp",_("Remove"),$module);
     shn_sub_mod_menuclose();
+
+    shn_sub_mod_menuopen("ISSUE ALERT!");
+    	shn_sub_mod_menuitem("new_alert",_("Create New Alert"),$module);
+    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
+//    	shn_sub_mod_menuitem("view_voice_alert",_("View Voice Alerts"),$module);
+//    	shn_sub_mod_menuitem("del_alert",_("Remove"),$module);
+    shn_sub_mod_menuclose();
+    shn_sub_mod_menuopen("View Published Alerts");
+    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
+    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
+    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
+    shn_sub_mod_menuclose();
     
-// removed this section is redundant now - nuwan    
-//    shn_sub_mod_menuopen("Common Alerting Protocol");
-//    shn_sub_mod_menuitem("cap_new", _("New Alert"), $module);
-//    shn_sub_mod_menuitem("cap_view", _("View Alert"), $module);
-//    shn_sub_mod_menuitem("cap_edit", _("Edit Alert"), $module);
-//    shn_sub_mod_menuitem("cap_upload", _("Upload CAP File"), $module);
-//    shn_sub_mod_menuitem("cap_form", _("CAP Form"), $module);
-//    shn_sub_mod_menuclose();
-    
-      
 /*
  *  Rearranged below menu items to fall in above categories  
     shn_sub_mod_menuopen("--Messages");

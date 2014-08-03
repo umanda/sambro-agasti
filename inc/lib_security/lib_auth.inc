@@ -601,7 +601,7 @@ function shn_auth_add_user_cr(){
 		$error = true;
 	}
 
-	list($error,$user_name)=(shn_validate_user_name($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
+	list($error,$user_name)=(shn_valid_email($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,$_POST{"user_name"});
 
 	//for the moment return true
 	list($error,$password)=(shn_validate_password($_POST{"user_name"},$_POST{"password"}))?array($error,$_POST{"password"}):array(true,$_POST{"password"});
@@ -645,7 +645,7 @@ function shn_auth_self_signup_cr(){
 	$db=$global["db"];
 	$VARCHAR=100;
 
-	list($error,$user_name)=(shn_validate_user_name($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
+	list($error,$user_name)=(shn_valid_email($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
 
 	//for the moment return true
 	list($error,$password)=(shn_validate_password($_POST{"user_name"},$_POST{"password"}))?array($error || false,$_POST{"password"}):array($error || true,$_POST{"password"});
@@ -758,19 +758,19 @@ function _shn_auth_lock_user($uid,$status)
 
 }
 
-function shn_auth_gen_captcha(){
+//function shn_auth_gen_captcha(){
 	//Now lets use md5 to generate a totally random string
-	$md5 = md5(microtime() * mktime());
+//	$md5 = md5(microtime() * mktime());
 
 	/*
 	 We dont need a 32 character long string so we trim it down to 5
 	 */
-	$string = substr($md5,0,5);
+//	$string = substr($md5,0,5);
 	/*
 	 Now for the GD stuff, for ease of use lets create
 	 the image from a background image.
 	 */
-	global $global;
+//	global $global;
 
 	//	$img_path= $global['approot']."www/res/img/captcha.png";
 	//	$captcha = imagecreatefrompng($img_path);
@@ -795,7 +795,7 @@ function shn_auth_gen_captcha(){
 	//	 */
 	//	imagestring($captcha, 5, 20, 10, $string, $black);
 	//
-	$width = 140;
+/*	$width = 140;
 	$height = 70;
 	$captcha = imagecreate($width,$height);
 	imagefilledrectangle($captcha,0,0,$width,$height,imagecolorallocate($captcha,255,255,255));
@@ -858,14 +858,15 @@ function shn_auth_gen_captcha(){
 	 Encrypt and store the key inside of a session
 	 */
 
-	$_SESSION['security_captcha_key'] = md5($string);
+//	$_SESSION['security_captcha_key'] = md5($string);
 
 	/*
 	 Output the image
 	 */
-	imagepng($captcha);
+//	imagepng($captcha);
 
-}
+//}
+
 
 
 /**

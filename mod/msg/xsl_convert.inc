@@ -231,7 +231,7 @@ function shn_msg_alert_show_converted_message_send_form($text,$type=null)
 			break;
 		default:
 	}
-	//var_dump($text);
+//	var_dump($display_text.$var_name);
 	$_SESSION['ivr_msg'] = $text;
 	$_SESSION['ivr_msg_id'] = $_GET['id'];
 	$_SESSION['ivr_var_name'] = $var_name;

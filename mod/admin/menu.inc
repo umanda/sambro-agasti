@@ -21,16 +21,16 @@ function _shn_admin_mainmenu()
     $module_list = shn_get_modules_with_admin();
     shn_mod_menuopen(shn_get_module_name());
     shn_sub_mod_menuitem("default", _t("Admin Home"), 'admin');
-    shn_sub_mod_menuitem("module_mgr",_t("Module Manager"),'admin');
-    shn_sub_mod_menuopen(_t("Location Hierarchy"));
+//    shn_sub_mod_menuitem("module_mgr",_t("Module Manager"),'admin');
+/*    shn_sub_mod_menuopen(_t("Location Hierarchy"));
     shn_sub_mod_menuitem("loc_lvl", _t("Location Terminology"), 'admin');
     shn_sub_mod_menuitem("add_loc", _t("Add New Location"), 'admin');
     shn_sub_mod_menuitem("view_loc", _t("Modify Location"), 'admin');
     shn_sub_mod_menuitem("loc_range", _t("Location Range"), 'admin');
-    shn_sub_mod_menuitem("loc_start", _t("Default Location"), 'admin');
+    shn_sub_mod_menuitem("loc_start", _t("Default Location"), 'admin');*/
     // shn_sub_mod_menuitem("loc_range", _t("Set Location Range"), $module);
     // shn_sub_mod_menuitem("start_loc", _t("Set Starting Location"), $module);
-    shn_sub_mod_menuclose();
+//    shn_sub_mod_menuclose();
 
     //GIS Admin menu inclusion:
     //@edit: Mifan Careem <mifan@respere.com>
@@ -40,12 +40,12 @@ function _shn_admin_mainmenu()
     //@edit: Mifan Careem <mifan@respere.com>
     _shn_admin_msg_menu();
 
-    shn_sub_mod_menuopen(_t("Module Configuration"));
+/*    shn_sub_mod_menuopen(_t("Module Configuration"));
     foreach($module_list as $i) {
         shn_sub_mod_menuitem("adm_default", $conf['mod_'.$i.'_name'], $i);
     }
     shn_sub_mod_menuclose();
-
+*/
     //shn_sub_mod_menuopen(_t("Module Management Console"));
     //include $global['approot']."/mod/admin/mmc_menus.inc";
     //shn_sub_mod_menuclose();
@@ -54,14 +54,14 @@ function _shn_admin_mainmenu()
 
     if ($conf['acl_enabled']) {
 	    shn_sub_mod_menuitem("acl_user_roles", _t("User Management"), 'admin');
-	    shn_sub_mod_menuitem("acl_enable_mods", _t("Module Access Control"), 'admin');
-            shn_sub_mod_menuitem("acl_privacy", _t("Data Classification"), 'admin');
-            shn_sub_mod_menuitem("acl_enable_signup", _t("Self Signup"), 'admin');
-	    shn_sub_mod_menuitem("acl_event_log", _t("Event Log"), 'admin');
-	    shn_sub_mod_menuitem("acl_enable_locking", _t("User Locking"), 'admin');
-	    shn_sub_mod_menuitem("acl_enable_acl", _t("Disable Security"), 'admin');
+//	    shn_sub_mod_menuitem("acl_enable_mods", _t("Module Access Control"), 'admin');
+  //          shn_sub_mod_menuitem("acl_privacy", _t("Data Classification"), 'admin');
+    //        shn_sub_mod_menuitem("acl_enable_signup", _t("Self Signup"), 'admin');
+//	    shn_sub_mod_menuitem("acl_event_log", _t("Event Log"), 'admin');
+//	    shn_sub_mod_menuitem("acl_enable_locking", _t("User Locking"), 'admin');
+//	    shn_sub_mod_menuitem("acl_enable_acl", _t("Disable Security"), 'admin');
     } else {
-		shn_sub_mod_menuitem("acl_enable_acl", _t("Enable Security"), 'admin');
+//		shn_sub_mod_menuitem("acl_enable_acl", _t("Enable Security"), 'admin');
     }
 
     shn_sub_mod_menuclose();
@@ -75,13 +75,13 @@ function _shn_admin_mainmenu()
     shn_sub_mod_menuitem("lc_ui_trns_update", _t("Update Translation"), 'admin');
     shn_sub_mod_menuclose();
 
-    shn_sub_mod_menuopen(_t("Disaster Levels"));
+/*    shn_sub_mod_menuopen(_t("Disaster Levels"));
     shn_sub_mod_menuitem("ims_level1",_t('Registered ')._lc($conf['mod_admin_ims_level1']), 'admin');
     shn_sub_mod_menuitem("ims_level2",_t('Registered ')._lc($conf['mod_admin_ims_level2']), 'admin');
     shn_sub_mod_menuitem("ims_level3",_t('Registered ')._lc($conf['mod_admin_ims_level3']), 'admin');
     shn_sub_mod_menuitem("ims_config",_t('Levels Terminology'), 'admin');
     //include $global['approot']."/mod/admin/ims_menus.inc";
-    shn_sub_mod_menuclose();
+    shn_sub_mod_menuclose();*/
 
     shn_sub_mod_menuopen(_t("Config Utils"));
     shn_sub_mod_menuitem("conf_list", _t("Config Values"), 'admin');

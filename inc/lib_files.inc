@@ -73,7 +73,7 @@ function shn_files_link($file_id,$return=false){
     
 	
 	shn_files_return_link($file_id);
-	$upload_file = '/sahana-demo/media/'.$file_id.'/'.$file_name[$i]['name'];
+	$upload_file = '/media/'.$file_id.'/'.$file_name[$i]['name'];
 
 	?>
 	

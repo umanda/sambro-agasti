@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:b="urn:oasis:names:tc:emergency:cap:1.1"> -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:b="urn:oasis:names:tc:emergency:cap:1.1" xmlns:php="http://php.net/xsl">
-<!--XSL for Short to SMS text type-->
-<!-- From CAP Doc Short to SMS
+<!--XSL for Long to Emai Text Type with CAP XML Attachment-->
+<!-- From CAP Doc Long to Email
 <info.headline>+”: ”+ <area.areaDesc> +”, “+
 <info.valueName>+”: “+ <info.value>+”, “+<info.event> +”
  from ”+<info.senderName> +”.

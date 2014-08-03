@@ -22,7 +22,7 @@
 	    //var_dump($_POST);
 	    
 	    
-	    shn_form_select($arropt,_('Location Category'), 'loc_cate_area',' onchange="bsm_change_loc_types(this.value, \'loc_type_area\')"',array('value'=>$loc_cate));	
+	    shn_form_select($arropt,_('Country'), 'loc_cate_area',' onchange="bsm_change_loc_types(this.value, \'loc_type_area\')"',array('value'=>$loc_cate));	
 	    
 	    
 	    $sql = "SELECT loc_type FROM msg_loc_type WHERE deactivate_dt IS NULL AND loc_cate = '$loc_cate' ORDER BY loc_type ASC";
@@ -35,5 +35,5 @@
 	        $arropt[$rv['loc_type']]=$rv['loc_type'];
 	    }	   
 	
-	    shn_form_select($arropt,_('Location Type'), 'loc_type_area',null,array('value'=>$loc_type));		
+	    shn_form_select($arropt,_('District/State'), 'loc_type_area',null,array('value'=>$loc_type));		
 	}

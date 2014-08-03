@@ -27,7 +27,7 @@ function __show_basic_form()
 
     shn_form_hidden(array('seq'=>'add_entry'));
 	shn_form_fsopen("");
-	echo "<p>"._("There are database fields which require translation, please put table name and column name in the following fields which require translation. Finally that table field values are added to sahana.po file and user can translate those values.")."</p>";
+	echo "<p>"._("There are database fields which require translation, please put table name and column name in the following fields which require translation. Finally that table field values are added to sambro.po file and user can translate those values.")."</p>";
     shn_form_text(_t("Table / Field Names"),'table',null,array('br'=>false));
     shn_form_text("",'field',null,array('br'=>false));
     shn_form_submit(_t("Add Entry"));

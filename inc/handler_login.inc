@@ -22,25 +22,26 @@ if ($_SESSION['logged_in'] != true ) {
 ?>
     <div id="loginform">
 	<form method="post" action="index.php?act=login">
-        <fieldset><legend><?=_t('Login')?></legend>
+        <!-- <fieldset> <legend><?=_t('Login')?></legend> -->
         <label><?=_t('User Name')?></label><input type="text" name="user_name" id="userName" />
         <label><?=_t('Password')?></label><input type="password" name="password" id="pswd" />
 		<input type="submit" value="Sign In" />
-		<br />
+
         <!-- <a href="#">Forgot your password?</a> -->
-        </fieldset>
+        
         <?php
          	$acl=shn_acl_is_signup_enabled();
- 			if($acl==true){
+ 			if(true){
  				?>
-        <div>
-        <?php echo _t("No account? "); ?> <a href="index.php?act=signup"><?php echo _t("Sign Up");?></a>
-        </div>
+
+      
+        <?php echo _t("  "); ?> <a href="index.php?act=signup"><?php echo _t("Request Account");?></a>
+
         <?php }?>
-    </form>
-    <hr />
-    <center> <a href="#" onclick="switchLogin('loginform','openid_loginform');"><?php echo _t("Login with an OpenID"); ?></a></center>
-    </div><!-- /loginform -->
+<!-- </fieldset> -->
+</form>   
+ 
+   </div><!-- /loginform -->
     
     <div id="openid_loginform">
     	<form action="" method="get">
@@ -60,10 +61,10 @@ if ($_SESSION['logged_in'] != true ) {
 } else {
 ?>
     <div id="loginform">
-        <fieldset><legend><?=_t('Logged In')?></legend>
-        <label><?=_t('User: ')?><?php echo $_SESSION['user'];?> </label>
-        <br />
-        <center><a href="index.php?act=logout"><?=_t('Logout')?></a></center>
+        <fieldset><?=_t('Logged In')?>
+        <?=_t('User: ')?><?php echo $_SESSION['user'];?>
+      
+<a href="index.php?act=logout"><?=_t('Logout')?></a>
     </div>
 
 <?php
