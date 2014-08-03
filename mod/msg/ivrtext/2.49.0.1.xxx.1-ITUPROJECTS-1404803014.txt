@@ -1,0 +1,20 @@
+Geo Test Alert effective for Thailand!
+
+A urgent priority Flash Flood issued by กรมอนามัยแห่งประเทศไทย
+
+Headline: รุนแรงน้ำท่วมฉับพลันที่ปรึกษาในการส่งผลกระทบต่อการ Ratnapura หัวเมืองและกรุงเทพฯ
+Message: 2.49.0.1.xxx.1-ITUPROJECTS-1404803014 from alert-srv@cap.ituprojects.org sent at 2014-07-08 02:07:06 is a Test, Restricted (Emergency Medical Services) Alert.
+
+This Extreme category - Geo - event is Immediate and is Observed.
+
+Description: รุนแรงน้ำท่วมฉับพลันที่ปรึกษาในการส่งผลกระทบต่อการ กรุงเทพฯ หัวเมืองและกรุงเทพฯ
+
+Response Type: Prepare
+
+Instruction(s): กรุงเทพฯ
+
+Alert is effective from: 2014-07-08T15:07:00+05:30 and will expire on: 2014-07-09T15:07:00+05:30
+
+For more details use the following sources -
+Web: 
+call: 
