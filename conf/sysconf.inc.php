@@ -122,7 +122,8 @@ $conf['cache_dir'] = 'cache/db_cache';
 
 # Default locale
 #
-$conf['locale'] = 'en_US';
+#$conf['locale'] = 'en_US';
+$conf['locale'] = 'si_LK';
 
 # Logging Configuration
 #

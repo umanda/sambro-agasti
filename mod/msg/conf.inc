@@ -78,11 +78,12 @@ $conf['mod_msg_plugin']='kannel';
  $conf['mod_msg_cap_short_to_tweet']='xsl_cap_short_tweet.xsl';
  $conf['mod_msg_cap_voice_to_satellite']='xsl_cap_voice_satellite.xsl';
  $conf['mod_msg_cap_long_to_signage']='xsl_cap_long_signage.xsl';
- $conf['mod_msg_cap_version'] = '1.1';
- 
+  
 #####################################
 #      CAP Alert Options            #
 #####################################
+
+$conf['mod_msg_cap_version'] = '1.2';
 
  # Default Message identifier - Prefix
 

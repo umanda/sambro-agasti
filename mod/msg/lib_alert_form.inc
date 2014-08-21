@@ -60,7 +60,7 @@ require_once('lib_cap_js.inc');
     shn_form_date(_t("Date Created"),'date_created',array('value'=>$today, 'req'=> true));
     shn_form_text(_t("Sender"),'sender','class=""',array('help'=>$help_sender, 'req'=>true));
     shn_form_text(_t("File Type"),'file_type',null, array('value'=>'cap', 'req' => true));
-    shn_form_text(_t("File Version"),'file_version',null, array('value'=>'1.1', 'req' => true));
+    shn_form_text(_t("File Version"),'file_version',null, array('value'=>'1.2', 'req' => true));
     //shn_form_upload(_('Upload file'), 'upload', null);
     
     
@@ -83,8 +83,8 @@ function shn_msg_alert_form($target, $values=null)
 {
 	shn_form_fopen("alert_submit", null,array('req_message'=>true));
     	shn_form_fsopen("Basic Information");
-    		shn_form_text("Name","name","size='20'",array("req"=>true, 'value'=>$name));
-    		shn_form_hidden(array("target"=>"$target"));
+    	shn_form_text("Name","name","size='20'",array("req"=>true, 'value'=>$name));
+    	shn_form_hidden(array("target"=>"$target"));
     	shn_form_submit("Save", $submit_opts = null);	
     shn_form_fclose();	
 }
@@ -106,6 +106,8 @@ function shn_msg_select_template($alert_id=null, $sender=null)
 		<thead>
 			<tr>
 				<td>Template Name</td>
+				<td>Category</td>
+				<td>Event</td>
 				<td>Author</td>
 			</tr>
 		</thead>	
@@ -117,6 +119,8 @@ function shn_msg_select_template($alert_id=null, $sender=null)
 	
 			<tr>
 				<td><a href="index.php?mod=msg&act=pick_template&sender=<?php echo $sender?>&id=<?php echo $temp_list[$x]['id']?>&for=<?php echo $alert_id?>"><?php echo $temp_list[$x]['name'];?></a></td>
+				<td><?php echo $temp_list[$x]['category'];?></td>
+				<td><?php echo $temp_list[$x]['event'];?></td>
 				<td><?php echo $temp_list[$x]['author'];?></td>
 			</tr>
     			
@@ -151,8 +155,10 @@ function shn_msg_alerts_list_form($type, $list)
     		<thead>
     			<tr>
     				<td>Name</td>
-    				<td>Type</td>
+    				<td>Category</td>
+<!--    				<td>Type</td>
     				<td>Version</td>
+-->
     				<td>Author</td>
     				
     			</tr>
@@ -170,8 +176,10 @@ function shn_msg_alerts_list_form($type, $list)
 	    				print $list[$x]['name'];
 	    			}
 	    			?></a></strong></td>
-	    			<td><?php print $list[$x]['alert_type']?></td>
+	    			<td><?php print $list[$x]['category']?></td>
+<!--	    			<td><?php print $list[$x]['alert_type']?></td>
 	    			<td><?php print $list[$x]['alert_version']?></td>
+-->
 	    			<td><?php print $list[$x]['author']?></td>
     			</tr>
     		<?php 	

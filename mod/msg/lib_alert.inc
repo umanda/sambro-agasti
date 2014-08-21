@@ -74,7 +74,6 @@ function shn_msg_alerts_list_generator($type)
 function shn_msg_alert_grabber($id)
 {
 	//include 'shn_cap_form.inc';
-	//print "you're here";
 	$xml=shn_msg_get_xml_by_id($id);
 	if($xml!=null){		
 		_shn_msg_cap_form($xml,$id);

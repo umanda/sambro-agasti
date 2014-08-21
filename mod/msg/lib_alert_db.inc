@@ -33,7 +33,7 @@ function shn_msg_alert_store($alert_id, $alert_name)
     // get the logged in user
 	$author=$_SESSION['user'];
     
-    $q="INSERT INTO msg_alerts (alert_uuid, alert_name, file_type, file_version, author, date_created, type) VALUES ('$alert_id','$alert_name','cap','1.1','$author','','temp');";
+    $q="INSERT INTO msg_alerts (alert_uuid, alert_name, file_type, file_version, author, date_created, type) VALUES ('$alert_id','$alert_name','cap','1.2','$author','','temp');";
     
     $res = $db->Execute($q);
     
@@ -72,6 +72,7 @@ function shn_msg_alert_list($type)
     	$list[$x]['alert_version']="{$res->fields['file_version']}";
     	$list[$x]['author']="{$res->fields['author']}";
     	$list[$x]['type']="{$res->fields['type']}";
+    	$list[$x]['category']="{$res->fields['category']}";
     	$x=$x+1;
 		$res->MoveNext();
 	}

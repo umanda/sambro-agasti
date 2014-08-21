@@ -1,8 +1,8 @@
 #!/bin/bash
-USER='sahana'
-PASS='sahanapwd'
+USER='root'
+PASS='Bkk@itucms'
 HOST='localhost'
-DATABASE='sahana'
+DATABASE='capitusdb'
 
 echo "Enter Hostname (default = localhost):"
 read HOST
@@ -13,7 +13,7 @@ fi
 echo "Enter Database (default = sahana):"
 read DATABASE
 if [ "$DATABASE" = '' ]; then
-    DATABASE='sahana'
+    DATABASE='sambro'
 fi
 
 echo "Enter user with access to the Database $DATABASE (default = root):"
@@ -69,9 +69,10 @@ loadsql mysql-acl.sql
 loadsql mysql-config.sql
 
 # Modules
-loadsql ../mod/rms/ins/rms.sql
+#loadsql ../mod/rms/ins/rms.sql
 #loadsql ../mod/gis/dbcreate.sql
-loadsql ../mod/lr/dbcreate.sql
+#loadsql ../mod/lr/dbcreate.sql
+loadsql ../mod/msg/dbcreate.sql
 
 # Sample data
 loadsql mysql-sampledata.sql
