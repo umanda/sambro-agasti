@@ -20,7 +20,7 @@ Msg ID:”+<alert.identifier>+” sent at ”+<alert.sent>+” is a
 <!-- <xsl:value-of select="b:info/b:category"/><xsl:text> </xsl:text> -->
 <xsl:value-of select="b:status"/><xsl:text> </xsl:text><xsl:value-of select="b:msgType"/> effective for <xsl:value-of select="b:info/b:area/b:areaDesc"/>!<xsl:text>
 </xsl:text>
-A <xsl:value-of select="b:info/b:priority"/> priority <xsl:value-of select="b:info/b:event"/> issued by <xsl:value-of select="b:info/b:senderName"/><xsl:text>
+A <xsl:value-of select="b:info/b:priority"/> priority <xsl:value-of select="b:info/b:event"/> alert issued by <xsl:value-of select="b:info/b:senderName"/><xsl:text>
 </xsl:text>
 Headline: <xsl:value-of select="b:info/b:headline"/><xsl:text></xsl:text>
 Message: <xsl:value-of select="b:identifier"/> from <xsl:value-of select="b:source"/> sent at <xsl:value-of select="b:sent"/> is a <xsl:value-of select="b:status"/>, <xsl:value-of select="b:scope"/> (<xsl:value-of select="b:restriction"/>) <xsl:value-of select="b:msgType"/>.<xsl:text>

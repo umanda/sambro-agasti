@@ -124,7 +124,8 @@ function create_tmp_xml_file($file, $tmp_content)
  * Get Type of XML - EDXL or CAP, and versions
  * @param $xml_doc Full XML Document
  * @return array('type'=>edxl/cap, 'version'=><version_number>)
- */
+ * @deprecated resolve dependencies before removing this function; we will stick to CAP messages only
+**/
 function shn_msg_get_xml_type($xml_doc)
 {
 	$type=null;

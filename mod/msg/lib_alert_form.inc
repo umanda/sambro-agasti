@@ -8,9 +8,9 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
 * @copyright    Respere - http://respere.com/
-* @package		sahana
+* @package	sahana
 * @subpackage   msg
 * @tutorial
 * @version		

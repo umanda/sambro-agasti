@@ -1,4 +1,8 @@
 <?php
+/**
+ * @comment make changes
+**/
+
 global $global;
 //print $_GET['seq'];
 switch($_GET['seq'])

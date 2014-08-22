@@ -8,13 +8,13 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Sudheera R. Fernando <sudheera@opensource.lk>
-* @author		Mifan Careem <mifan@respere.com>
+* @author	Sudheera R. Fernando <sudheera@opensource.lk>
+* @author	Mifan Careem <mifan@respere.com>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package		sahana
+* @package	sahana
 * @subpackage	msg
 * @tutorial
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General
 * Public License (LGPL)
 */
 

@@ -8,13 +8,13 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
 * @copyright    Respere - http://respere.com/
-* @package		sahana
+* @package	sahana
 * @subpackage   msg
 * @tutorial
 * @version		
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General
 * Public License (LGPL)
 *  
 */

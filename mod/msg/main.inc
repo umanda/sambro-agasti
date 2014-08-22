@@ -14,14 +14,15 @@
 * 	@author		Sudheera R. Fernando <sudheera@opensource.lk>
 * 	@author		Sriganeshan<sri@opensource.lk>
 * ----------
-* @author		Mifan Careem <mifan@respere.com>
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Mifan Careem <mifan@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
+* @author	Nuwan <nuwan@gmail.com>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package		SAMBRO
+* @package	Sahana
 * @subpackage   msg
 * @tutorial
-* @version		$Id: main.inc,v 1.32 2008/08/02 15:29:45 priyanga Exp $
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
+* @version	$Id: main.inc,v 1.32 2008/08/02 15:29:45 priyanga Exp $
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
 */
 
 
