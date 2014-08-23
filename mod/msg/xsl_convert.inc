@@ -92,7 +92,7 @@ function shn_msg_xsl_transform($xml_id,$xsl_name){
 	//print $xml->saveXML();
 	if($xsl_name != 'view_data')
 	{
-		echo "<h2>"._('Converted CAP Output')."</h2>";
+		echo "<h2>"._('CAP MESSAGE :: ').$xml_id."</h2>";
 	}
 	
 	if($xsl_name == "voice_to_ivr"){
@@ -178,20 +178,38 @@ function shn_msg_alert_show_converted_message_send_form($text,$type=null)
 {
 	//shn_form_fopen('send_message',null,array('req'=>false));
 	//print($type);
+	$xml_id = $_SESSION['msg']['send']['xml_id'];
 	if($type == 'view_data_indv')
 	{
 		shn_form_fopen('view_list_alert',null,null);
 		print($text);
 		shn_form_hidden(array('seq'=>'alert_more'));
-		$xml_id = $_SESSION['msg']['send']['xml_id'];
+//		$xml_id = $_SESSION['msg']['send']['xml_id'];
 		shn_form_hidden(array('xml_id'=>$xml_id));
 		shn_form_submit("More");
 		shn_form_fclose();
+/** 
+ * @author Nuwan (waidyanatha@gmail.com)
+ * @comment now we can remove the view_alert menu and use this form as an all pupose one
+ * @todo make publish to web mandatory
+**/
+		$panel ="<a href='index.php?mod=msg&act=send_alert&seq=select_contact&xml_id=$xml_id'>Send</a>&nbsp;&nbsp;&nbsp;<a href='index.php?mod=msg&act=update_alert&id=$xml_id'>Update</a>&nbsp;&nbsp;&nbsp;<a href='index.php?mod=msg&act=delete_alert&id=$xml_id'>Delete</a>";
+		print "<br><strong>$panel</strong>";
+
 	}
 	else if ($type == 'view_data_indv_more')
 	{
+/** 
+ * @author Nuwan (waidyanatha@gmail.com)
+ * @comment now we can remove the view_alert menu and use this form as an all pupose one
+ * @todo make publish to web mandatory
+**/
+		$panel ="<a href='index.php?mod=msg&act=send_alert&seq=select_contact&xml_id=$xml_id'>Send</a>&nbsp;&nbsp;&nbsp;<a href='index.php?mod=msg&act=update_alert&id=$xml_id'>Update</a>&nbsp;&nbsp;&nbsp;<a href='index.php?mod=msg&act=delete_alert&id=$xml_id'>Delete</a>";
+
+		print "<strong>$panel</strong><br><br>";
 		print($text);
 		//$text = $text;
+		print "<br><strong>$panel</strong>";
 	}
 	else if($type == 'view_data')
 	{
@@ -209,6 +227,10 @@ function shn_msg_alert_show_converted_message_send_form($text,$type=null)
 			$display_text .= 'Short SMS';
 			$var_name .= '_short_sms';
 			break;
+		case 'short_to_dlabel':
+                        $display_text .= 'Dynamic Label';
+                        $var_name .= '_short_dlabel';
+                        break;
 		case 'short_to_email':
 			$display_text .= 'Short Email';
 			$var_name .= '_short_email';
@@ -260,6 +282,10 @@ function shn_msg_alert_populate_session_on_type($xml_dom,$type)
 		case 'short_to_sms':
 			//clear session
 			$_SESSION['msg']['sms']=array();
+			break;
+		case 'short_to_dlabel':
+			//clear session
+			$_SESSION['msg']['dlabel']=array();
 			break;
 		case 'long_to_email':
 			$_SESSION['msg']['email']=array();

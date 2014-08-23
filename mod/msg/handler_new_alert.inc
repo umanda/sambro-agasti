@@ -167,10 +167,11 @@ function _shn_msg_new_alert_db($type=null)
 	$insert_array['alert_uuid'] = trim($_POST['identifier']);
 	$insert_array['alert_name'] = trim($_POST['name']);
 	$insert_array['file_type'] = ($_POST['file_type'])? trim($_POST['file_type']) : "cap";
-	$insert_array['file_version'] = ($_POST['file_version'])? trim($_POST['file_version']) : "1.1";
+	$insert_array['file_version'] = ($_POST['file_version'])? trim($_POST['file_version']) : "1.2";
 	$insert_array['author'] = trim($_POST['sender']);
 	$insert_array['date_created'] = trim($_POST['date_created']);
 	$insert_array['type'] = trim($_POST['mode']);
+	$insert_array['web_enabled'] = "1";
 	
 	$_SESSION['msg']['new']['alert'] = $insert_array;
 	

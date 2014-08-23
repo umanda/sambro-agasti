@@ -33,8 +33,8 @@ function shn_georss_channel_open($title,$subtitle,$desc){
     echo "<updated>$desc</updated>\n";
     echo "<description>$desc</description>\n";
     echo "<language>{$conf['locale']}</language>\n";
-    echo "<category>Sahana</category>\n";
-    echo "<generator>"._t("Sahana FOSS Disaster Management System")."</generator>\n";
+    echo "<category>CAPITUS</category>\n";
+    echo "<generator>"._t("ITU Projects Office")."</generator>\n";
     echo "<webMaster>{$conf['root_email']}</webMaster>\n";
 }
 

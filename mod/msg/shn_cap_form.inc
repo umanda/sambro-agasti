@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author Nuwan (waidyanatha@gmail.com)
+ * @Comment revise the view_alert component
+**/
+
 	global $global;
 	require_once $global['approot']."/inc/lib_locale/lib_locale.inc";
 	require_once('class_cap_alert.inc');
@@ -628,10 +634,10 @@
 	    //var_dump($info);
 	    //print()
 	   	shn_form_fsopen(_t("Information"));
-	    	$category = array('Geo'=>'Geo', 'Met'=>'Met', 'Safety'=>'Safety', 
+	    	$category = array('Geological'=>'Geo', 'Meteorological'=>'Met', 'Safety'=>'Safety', 
                       'Security'=>'Security', 'Rescue'=>'Rescue', 
-                      'Fire'=>'Fire', 'Health'=>'Health', 'Env'=>'Env', 
-                      'Transport'=>'Transport', 'Infra'=>'Infra', 
+                      'Fire'=>'Fire', 'Health'=>'Health', 'Environment'=>'Env', 
+                      'Transport'=>'Transport', 'Infrastracture'=>'Infra', 
                       'CBRNE'=>'CBRNE', 'Other'=>'Other');
     
 		    $session_lang = $_SESSION["locale"];
@@ -645,7 +651,8 @@
 		    }
 		    
 		    
-		    $language = array('si_LK'=>_t("Sinhala"),'tm_LK'=>_t("Tamil"),'en_US'=>_t("English")); 
+		    $language = array('en_US'=>_t("English")); 
+//		    $language = array('si_LK'=>_t("Sinhala"),'tm_LK'=>_t("Tamil"),'en_US'=>_t("English")); 
 		    //$language = array('sinhala'=>_t("Sinhala"),'tamil'=>_t("Tamil"),'english'=>_t("English")); 
 		    
 		    shn_form_select($language, _t("Language"), 'info_language', null, array('value'=>$info_language,'help'=>$help_language));		    

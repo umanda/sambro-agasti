@@ -38,17 +38,29 @@ function shn_msg_cap_select_delivery_type($id = null,$full_message_xml=null)
 <table>
 	<thead>
 		<tr>
+<!-- @deprecated displaying the long and short delivery category confuses the uses
+     @author Nuwan (waidyanatha@gmail.com)
+     @date 2014-08-22
 			<td><?php echo _('Delivery Category');?></td>
+-->
 			<td><?php echo _('Delivery Type');?></td>
 			<td><?php echo _('Select');?></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td rowspan=5><?php echo _('Short Text');?></td>
+<!--			<td rowspan=5><?php echo _('Short Text');?></td>
+-->
 			<td><?php echo _('SMS');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" value="short_to_sms"/></td>
 		</tr>
+		<tr>
+<!--
+			<td rowspan=3><?php echo _('Long Text');?></td>
+-->
+			<td><?php echo _('Email');?></td>
+			<td><input type="checkbox" name="select_type[]" id="select[]" value="long_to_email"/></td>
+		</tr><!--
 		<tr>
 			<td><?php echo _('HF');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" disabled/></td>
@@ -61,19 +73,15 @@ function shn_msg_cap_select_delivery_type($id = null,$full_message_xml=null)
 			<td><?php echo _('Email');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" value="short_to_email"/></td>
 		</tr>
+-->
 		<tr>
 			<td><?php echo _('Tweet');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" value="short_to_tweet"/></td>
 		</tr>
 		
-		
-		<tr>
-			<td rowspan=3><?php echo _('Long Text');?></td>
-			<td><?php echo _('Email');?></td>
-			<td><input type="checkbox" name="select_type[]" id="select[]" value="long_to_email"/></td>
-		</tr>
 		<tr>
 			<td><?php echo _('Web');?></td>
+
 			<?php 
 			if($res = _shn_msg_check_long_web($id))
 			{
@@ -95,21 +103,28 @@ function shn_msg_cap_select_delivery_type($id = null,$full_message_xml=null)
 			?>
 			<td><input type="checkbox" name="select_type[]" id="select[]" value="long_to_web" <?php echo $checked?> /></td>
 		</tr>
+
+<!-- @todo add these delivery methods later; right now there is a bug when these options are selected it removes the alert from the web.
 		<tr>
                         <td><?php echo _('Signage');?></td>
                         <td><input type="checkbox" name="select_type[]" id="select[]" value="long_to_signage"/></td>
                 </tr>
-	
+
+		<tr>
+                        <td><?php echo _('Dynamic Label');?></td>
+                        <td><input type="checkbox" name="select_type[]" id="select[]" value="short_to_dlabel"/></td>
+                </tr>
 		<tr>
 			<td rowspan=2><?php echo _('Voice Text');?></td>
 			<td><?php echo _('VoiceXML');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" disabled/></td>
 		</tr>
+
 		<tr>
 			<td><?php echo _('IVR');?></td>
 			<td><input type="checkbox" name="select_type[]" id="select[]" value="voice_to_ivr"/></td>
 		</tr>
-		
+-->		
 	</tbody>
 </table>
 <?php 
@@ -135,6 +150,12 @@ function shn_msg_alert_contact_select()
 	global $global;
 	include_once $global['approot'].'/mod/msg/lib_contact.php';
 	shn_form_fopen('send_alert&seq=delivery_type',null,array('req'=>false));
+	echo "<H3>"._("* Select groups and individuals from the CONTACTS list below by simply clicking the hyperlink.")."<br/>";
+	echo _("* Seperate groups and individuals by a comma (,)")."<br/>";
+	echo _("* MOBILE numbers can be added as country + number (DO NOT ADD a plus symbol (+) or 00 in front of the country code. (e.g. ").("945551212").")<br/>";
+	echo _("* EMAIL addresses follow the standard format; i.e. myaddress@domain.com")."<br/>";
+	echo "</H3>";
+	echo "<br/>";
 	shn_form_fsopen(_t('Select Contacts'));
 	shn_form_textarea('Recipient List','to');
 	//shn_msg_display_contact_list('to');

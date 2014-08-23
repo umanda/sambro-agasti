@@ -179,6 +179,7 @@ function shn_msg_send_message(){
 		//Template or custom message
 		$message = $_POST['message'];
 		$message_array['short_sms']=($_REQUEST['message_short_sms']!=''?$_REQUEST['message_short_sms']:$_REQUEST['message']);
+		$message_array['short_dlabel']=($_REQUEST['message_short_dlabel']!=''?$_REQUEST['message_short_dlabel']:$_REQUEST['message']);
 		$message_array['short_email']=($_REQUEST['message_short_email']!=''?$_REQUEST['message_short_email']:$_REQUEST['message']);
 		$message_array['long_email']=($_REQUEST['message_long_email']!=''?$_REQUEST['message_long_email']:$_REQUEST['message']);
 		$message_array['long_signage']=($_REQUEST['message_long_signage']!=''?$_REQUEST['message_long_signage']:$_REQUEST['message']);

@@ -108,7 +108,7 @@ function shn_msg_mainmenu()
     //shn_sub_mod_menuitem("survey_rpt",_("View Survey Reports"),$module);
    // shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Manage CAP Templates");
+    shn_sub_mod_menuopen("Manage Templates");
     	shn_sub_mod_menuitem("new_alert_temp",_("Add New Template"),$module);
     	shn_sub_mod_menuitem("view_alert_temp",_("Edit Templates"),$module);
 //    	shn_sub_mod_menuitem("update_alert_temp",_("Update"),$module);
@@ -117,15 +117,17 @@ function shn_msg_mainmenu()
 
     shn_sub_mod_menuopen("ISSUE ALERT!");
     	shn_sub_mod_menuitem("new_alert",_("Create New Alert"),$module);
-    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
+//    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
 //    	shn_sub_mod_menuitem("view_voice_alert",_("View Voice Alerts"),$module);
 //    	shn_sub_mod_menuitem("del_alert",_("Remove"),$module);
+    shn_mod_menuitem("view_list_alert", "Search Alerts", $module) ;
+    shn_mod_menuitem("view_recent_alerts", "Recent Alerts", $module) ;
     shn_sub_mod_menuclose();
-    shn_sub_mod_menuopen("View Published Alerts");
-    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
-    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
-    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
-    shn_sub_mod_menuclose();
+//    shn_sub_mod_menuopen("View Published Alerts");
+//    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
+//    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
+//    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
+//    shn_sub_mod_menuclose();
     
 /*
  *  Rearranged below menu items to fall in above categories  

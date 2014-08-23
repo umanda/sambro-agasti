@@ -77,6 +77,7 @@ $conf['mod_msg_plugin']='kannel';
  $conf['mod_msg_cap_voice_to_ivr']='xsl_cap_voice_ivr.xsl'; 
  $conf['mod_msg_cap_short_to_tweet']='xsl_cap_short_tweet.xsl';
  $conf['mod_msg_cap_voice_to_satellite']='xsl_cap_voice_satellite.xsl';
+ $conf['mod_msg_cap_short_to_dlabel']='xsl_cap_short_dlabel.xsl';
  $conf['mod_msg_cap_long_to_signage']='xsl_cap_long_signage.xsl';
   
 #####################################

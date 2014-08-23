@@ -155,10 +155,8 @@ function shn_msg_alerts_list_form($type, $list)
     		<thead>
     			<tr>
     				<td>Name</td>
-    				<td>Category</td>
-<!--    				<td>Type</td>
+    				<td>Type</td>
     				<td>Version</td>
--->
     				<td>Author</td>
     				
     			</tr>
@@ -176,10 +174,8 @@ function shn_msg_alerts_list_form($type, $list)
 	    				print $list[$x]['name'];
 	    			}
 	    			?></a></strong></td>
-	    			<td><?php print $list[$x]['category']?></td>
-<!--	    			<td><?php print $list[$x]['alert_type']?></td>
+	    			<td><?php print $list[$x]['alert_type']?></td>
 	    			<td><?php print $list[$x]['alert_version']?></td>
--->
 	    			<td><?php print $list[$x]['author']?></td>
     			</tr>
     		<?php 	
