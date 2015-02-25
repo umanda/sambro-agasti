@@ -80,7 +80,7 @@ function shn_auth_form_signup($title="Create Your Account",$mod="pref",$act="sig
     if($error)
     display_errors();
 ?>               
-<h3><?php echo _t("SignUp for a SAHANA account")?></h3> 
+<h3><?php echo _t("Register for a CAPITUS account")?></h3> 
 <div id="formcontainer">
 <?php
     shn_form_fopen($act,$mod);
@@ -88,9 +88,37 @@ function shn_auth_form_signup($title="Create Your Account",$mod="pref",$act="sig
 	shn_form_fsopen(_t("Account Details"));
 	$extra_opts['req']=true;
 	//$extra_opts['value']=$_SESSION['user'];
-	shn_form_text(_t("Full Name "),'account_name','size="30"',null);
-	shn_form_text(_t("User Name "),'user_name','size="30"',$extra_opts);
-    if(isset($_POST['password']) || isset($_POST['re_password'])) {
+	shn_form_text(_t("Full Name "),'account_name','size="30"',$extra_opts);
+	shn_form_text(_t("Email "),'user_name','size="30"',$extra_opts);
+	
+	$sql = "SELECT * FROM msg_loc_cate WHERE deactivate_dt IS NULL ORDER BY loc_cate ASC";
+	    $rsql = $global['db']->GetAll($sql);
+	    $countries = array(''=>'');
+	    foreach ($rsql AS $r => $rv)
+	    {
+	        $countries[$rv['loc_cate']]=$rv['loc_cate'];
+	    }
+
+        shn_form_select($countries,_t("Country"),"country",$extra_opts,array('value'=>$countries, 'req'=>true));
+
+	shn_form_text(_t("Organization "),'organization','size="30"', array('help'=>"what is the name of your organization or affiliation?", 'req'=>true));
+        
+        $trial_period = array(''=>'', '2 weeks'=>'2 weeks', '1 month'=>'1 month', 
+			                          '1 year'=>'1 year');
+	
+       	shn_form_select($trial_period,_t("Trial Period"),"trial_period",$extra_opts,array('help'=>$help_scope, 'value'=>$trial_period, 'req'=>true));
+
+
+        shn_form_text(_t("Purpose "),'purpose','size="30"',array('help'=>"Describe why you want to use CAPITUS?",'req'=>false));
+        shn_form_text(_t("List users "),'list_users','size="30"',array('help'=>"who will use CAPITUS? List all organizations",'req'=>false));
+        //Outcomes drop down
+        $outcomes = array(''=>'', 'Yes'=>'Yes', 'No'=>'No', 
+			                          'Undecided'=>'Undecided');
+        shn_form_select($outcomes,_t("Outcomes"),"outcomes",$extra_opts,array('help'=>"Can we contact you to learn about your experience?",'value'=>$outcomes, 'req'=>true));
+
+        shn_form_textarea(_t("Remarks"),'remarks','size="30"',array('help'=>"Use this box to share any additional information that would help us determine with granting you permission",'req'=>false));
+	
+        if(isset($_POST['password']) || isset($_POST['re_password'])) {
 	    unset($_POST['password']);
 	    unset($_POST['re_password']);
 	}
@@ -99,26 +127,29 @@ function shn_auth_form_signup($title="Create Your Account",$mod="pref",$act="sig
 	shn_form_password("Confirm Password", "re_password", null, $extra_opts);
 	shn_form_fsclose();
 
-    
+    /*
     $extra_opts['req']=true;
 	shn_form_fsopen(_t("OpenId Login Details"));
 	?><div class="info"><?= _t("You can use an OpenID instead of a username/password for login if you like.");?> </div><br /><?
 	shn_form_text(_t("OpenID "),'openid','size="30"',null);
 	shn_form_fsclose();
-	
-	shn_form_fsopen(_t("Just a couple of more Details to verify that you are not a bot"));
-	
-?>
-</br>
+	*/
+/*	shn_form_fsopen(_t("Just a couple of more Details to verify that you are not a bot"));
+?>	
+
+
+<br/>
 <img src="index.php?stream=image&mod=pref&act=captcha" />
-<br />
+<br/>
+
+
 <?php
 //create the submit button
     if(isset($_POST['captcha'])) {
 		unset($_POST['captcha']);
 	}
-	shn_form_text(_t("Enter the text in the above image "),'captcha','size="30"',$extra_opts);
-	shn_form_fsclose();
+	shn_form_text(_t("Enter the text in the above image "),'captcha','size="30"', null);
+	shn_form_fsclose(); */
  	shn_form_submit(_t("Submit"));
 ?>
 

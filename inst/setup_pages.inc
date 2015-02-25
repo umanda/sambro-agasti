@@ -30,16 +30,16 @@ function shn_setup_general_dependencies()
 	$_SESSION['setup_step_no'] = 1;
 
 	?>
-<h1><?=_t('Sahana Web Setup - Step ').$step_no?></h1>
+<h1><?=_t('CAPITUS Web Setup - Step ').$step_no?></h1>
 
-<p><?=_t('Welcome to Sahana. Please follow the following steps to setup the Sahana system')?></p>
+<p><?=_t('Welcome to CAPITUS. Please follow the following steps to setup the CAPITUS system')?></p>
 
-<p><?=_t('First we need to check if all the relevant dependencies for the Sahana system to be install are available on your system')?></p>
+<p><?=_t('First we need to check if all the relevant dependencies for the CAPITUS system to be install are available on your system')?></p>
 	<?php
 	shn_form_fopen('general_dependencies_submit',null,array('req_message'=>false));
 	shn_form_fsopen(_t('PHP libraries'));
 	?>
-<p><?=_t('The following checks if all the relevant Sahana libraries are installed')?></p>
+<p><?=_t('The following checks if all the relevant CAPITUS libraries are installed')?></p>
 	<?php
 
 	$value = (version_compare(phpversion(), '5', '>'));
@@ -50,7 +50,7 @@ function shn_setup_general_dependencies()
 		shn_form_label(_t('PHP Version'), $tick_img.phpversion()." is installed");
 	} else {
 		shn_form_label(_t('PHP Version'), $cross_img.phpversion()." is installed");
-		echo "<p><br/>$oops_img Sahana needs PHP version 5.0 or higher. Please upgrade your version of PHP</p>";
+		echo "<p><br/>$oops_img CAPITUS needs PHP version 5.0 or higher. Please upgrade your version of PHP</p>";
 	}
 
 	// Check if php-gd is loaded
@@ -61,7 +61,7 @@ function shn_setup_general_dependencies()
 		shn_form_label(_t('PHP-GD Library'), $tick_img."installed");
 	} else {
 		shn_form_label(_t('PHP-GD Library'), $cross_img."is not installed");
-		echo "<p><br/>$oops_img Sahana needs PHP-GD for image manipulations. Please install PHP-GD and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.sahana.lk/wiki/doku.php?id=manual:install\">Sahana WIKI</a></p>";
+		echo "<p><br/>$oops_img CAPITUS needs PHP-GD for image manipulations. Please install PHP-GD and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.capitus.lk/wiki/doku.php?id=manual:install\">CAPITUS WIKI</a></p>";
 	}
 
 	// Check if php-gettext is loaded
@@ -72,7 +72,7 @@ function shn_setup_general_dependencies()
 		shn_form_label(_t('PHP-gettext Library'), $tick_img."installed");
 	} else {
 		shn_form_label(_t('PHP-gettext Library'), $cross_img."is not installed");
-		echo "<p><br/>$oops_img Sahana needs PHP-gettext for to support local languages. Please install PHP-gettext and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.sahana.lk/wiki/doku.php?id=manual:install\">Sahana WIKI</a></p>";
+		echo "<p><br/>$oops_img CAPITUS needs PHP-gettext for to support local languages. Please install PHP-gettext and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.capitus.lk/wiki/doku.php?id=manual:install\">CAPITUS WIKI</a></p>";
 	}
 
 	$value = (extension_loaded('mysql'));
@@ -82,23 +82,23 @@ function shn_setup_general_dependencies()
 		shn_form_label(_t('MySQL library'), $tick_img."installed");
 	} else {
 		shn_form_label(_t('MySQL library'), $cross_img."is not installed");
-		echo "<p><br/>$oops_img Sahana needs PHP-MySQL library and MySQL for database operation. Please install PHP-MySQL library and MySQL and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.sahana.lk/wiki/doku.php?id=manual:install\">Sahana WIKI</a></p>";
+		echo "<p><br/>$oops_img CAPITUS needs PHP-MySQL library and MySQL for database operation. Please install PHP-MySQL library and MySQL and restart the webserver. To find out how to do this for your operating system see <a href=\"http://www.capitus.lk/wiki/doku.php?id=manual:install\">CAPITUS WIKI</a></p>";
 	}
 
 	shn_form_fsclose();
 	shn_form_fsopen(_t('File and Directory Permissions'));
 	?>
-<p><?=_t('The following checks if certain files and sub-directories have write permissions for Sahana to function,')?></p>
+<p><?=_t('The following checks if certain files and sub-directories have write permissions for CAPITUS to function,')?></p>
 	<?php
 	$tmpWritable = is_writable($global['approot'].'www/tmp');
 	$isOK &= $tmpWritable;
 
 	if ($tmpWritable) {
 		//shn_form_label(_t('Sahana www/tmp/ is writable?'),"The Sahana sub-directory writable");
-		shn_form_label(_t('<i>sahana/www/tmp/</i>'),"is <strong><font color=green>writable</font></strong>!<br>");
+		shn_form_label(_t('<i>capitus/www/tmp/</i>'),"is <strong><font color=green>writable</font></strong>!<br>");
 	} else {
 		//shn_form_label(_t('Sahana www/tmp/ is writable?'),"The Sahana sub-directory not writable");
-		shn_form_label(_t('<i>sahana/www/tmp/</i>'),"is <strong><font color=red>not writable</font></strong>!<br>");
+		shn_form_label(_t('<i>capitus/www/tmp/</i>'),"is <strong><font color=red>not writable</font></strong>!<br>");
 		//echo "<p><br/>$oops_img The directory ".$global['approot']."www/tmp needs to be writable by the web server at least. Please change the permissions of this directory and try again.</p>";
 	}
 
@@ -117,14 +117,14 @@ function shn_setup_general_dependencies()
 	$confWritable = is_writable($global['approot'].'conf');
 	if ($confWritable) {
 		//shn_form_label(_t('Sahana www/conf/ is writable?'), $tick_img."The Sahana sub-directory writable");
-		shn_form_label(_t('<i>sahana/conf/</i>'),"is <strong><font color=green>writable</font></strong>!<br>");
+		shn_form_label(_t('<i>capitus/conf/</i>'),"is <strong><font color=green>writable</font></strong>!<br>");
 	} else {
 		//shn_form_label(_t('Sahana www/conf/ is writable?'), "The Sahana sub-directory not writable");
 		shn_form_label(_t('<i>sahana/conf/</i>'),"is <strong><font color=red>not writable</font></strong>!<br>");
 	}
 	if (!$tmpWritable || !$confWritable) {
 		$both = (!$tmpWritable && !$confWritable);
-		echo "<p>Note: <font color=gray>" . (($both ? "both " : "")) . ((!$confWritable) ? "<strong>sahana/conf/</strong>" : "") . (($both) ? " and " : " ") . ((!$tmpWritable) ? "<strong>sahana/www/tmp/</strong>" : "") . " need" . ((!$both) ? "s" : "") . " to be writable by the web server at least. Please change the permissions of " . ((!$both) ? "this directory" : "these directories") . " and try again.</font></p>";
+		echo "<p>Note: <font color=gray>" . (($both ? "both " : "")) . ((!$confWritable) ? "<strong>capitus/conf/</strong>" : "") . (($both) ? " and " : " ") . ((!$tmpWritable) ? "<strong>capitus/www/tmp/</strong>" : "") . " need" . ((!$both) ? "s" : "") . " to be writable by the web server at least. Please change the permissions of " . ((!$both) ? "this directory" : "these directories") . " and try again.</font></p>";
 	}
 	shn_form_fsclose();
 
@@ -149,7 +149,7 @@ function shn_setup_license($step_no=null)
 	global $global;
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
-<h2><?php echo _t('Sahana Web Setup - Step ').$step_no?></h2>
+<h2><?php echo _t('CAPITUS Web Setup - Step ').$step_no?></h2>
 	<?php
 
 	$license = file_get_contents($global['approot']."lgpl-2.1.txt");
@@ -178,7 +178,7 @@ function shn_setup_select_setup($step_no=null)
 	global $global;
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
-<h2><?php echo _t('Sahana Database Setup - Step ').$step_no?></h2>
+<h2><?php echo _t('CAPITUS Database Setup - Step ').$step_no?></h2>
 	<?php
 	shn_form_fopen('select_setup_submit',null,array('req_message'=>false));
 	shn_form_fsopen(_t('Select a setup type to continue.'));
@@ -206,7 +206,7 @@ function shn_setup_select_dbsetup($step_no=null){
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
 <h2><?php
-echo _t('Sahana Web Setup - Step ').$step_no;
+echo _t('CAPITUS Web Setup - Step ').$step_no;
 ?></h2>
 <?php
 display_errors();
@@ -231,7 +231,7 @@ function shn_setup_simple_dbsetup($step_no=null)
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
     <h2><?php
-    echo _t('Sahana Web Setup - Step ').$step_no;
+    echo _t('CAPITUS Web Setup - Step ').$step_no;
     ?></h2>
     <?php
     display_errors();
@@ -297,7 +297,7 @@ function shn_setup_empty_dbsetup()
 	add_warning(_t("Any existing tables in the selected database will be destroyed."));
 	?>
     <h2><?php
-    echo _t('Sahana Web Setup - Step ').$step_no;
+    echo _t('CAPITUS Web Setup - Step ').$step_no;
     ?></h2>
     <?php
     display_errors();
@@ -327,7 +327,7 @@ function shn_setup_existing_dbsetup()
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
     <h2><?php
-    echo _t('Sahana Web Setup - Step ').$step_no;
+    echo _t('CAPITUS Web Setup - Step ').$step_no;
     ?></h2>
     <?php
     display_errors();
@@ -359,9 +359,9 @@ function shn_setup_simple_config($step_no=null)
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
     <h2><?php
-    echo _t("Sahaha Web Setup - Step ").$step_no;
+    echo _t("CAPITUS Web Setup - Step ").$step_no;
     ?></h2>
-    <p><?php echo _t("Please follow the following steps to setup the Sahana configuration.") ?></p>
+    <p><?php echo _t("Please follow the following steps to setup the CAPITUS configuration.") ?></p>
 
     <?php
     display_errors();
@@ -379,10 +379,10 @@ function shn_setup_simple_config($step_no=null)
 
     shn_form_fsopen(_t('Installation Details'));
 
-    echo '<p>The following details are needed to uniquely identify your Sahana installation</p>'; // some spellings corrected by chamath 2007-03-15 09:50
+    echo '<p>The following details are needed to uniquely identify your CAPITUS installation</p>'; // some spellings corrected by chamath 2007-03-15 09:50
 
     $help_txt = "The following field is randomly generated to help uniquely identify \
-                     this Sahana installation. Please use this unless you have a \
+                     this CAPITUS installation. Please use this unless you have a \
                      convention defined";
     shn_form_text(_t('Unique Installation ID'),'base_uuid','size="4" maxlength="4"',
     (isset($_SESSION[SETUP_DATA_PREFIX."base_uuid"]))?array('value'=>$_SESSION[SETUP_DATA_PREFIX."base_uuid"],'req'=>true , 'help' => $help_txt):array('value'=> shn_generate_uuid(4),'req'=>true , 'help' => $help_txt));
@@ -414,13 +414,13 @@ function shn_setup_simple_config($step_no=null)
     shn_form_fsopen(_t('Configuration File'));
     if (is_writeable($global['approot'].'conf')) {
 
-    	echo '<p>The next step is to write the configuration file sysconf.inc in the Sahana /conf directory.</p>';
+    	echo '<p>The next step is to write the configuration file sysconf.inc in the CAPITUS /conf directory.</p>';
 
     } else {
     	echo '<p>The PHP/Web Server should normally not have access to write
-        or modify the configuration file located in Sahana application <b>/conf</b> 
+        or modify the configuration file located in CAPITUS application <b>/conf</b> 
         directory, as this is a security risk. Please specify where to write the temporary file (e.g. /tmp). Subsequently you need to move this file to 
-        the Sahana <b>/conf</b> directory.</p>';
+        the CAPITUS <b>/conf</b> directory.</p>';
 
     	$tmp_filename = tempnam('/tmp','sysconf.inc.php');
     	// Need the temporary directory rather than the filename
@@ -449,10 +449,10 @@ function shn_setup_adv_select_modules($step_no=null)
 	global $global, $conf;
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
-    <h2><?php 
-    echo _t("Sahaha Web Setup - Step ").$step_no;
+    <h2><?php
+    echo _t("CAPITUS Web Setup - Step ").$step_no;
     ?></h2>
-    <p><?php echo _t("Please follow the following steps to setup the Sahana configuration.") ?></p>
+    <p><?php echo _t("Please follow the following steps to setup the CAPITUS configuration.") ?></p>
     <?php
     display_errors();
 
@@ -586,7 +586,7 @@ function shn_setup_adv_advanced_config($step_no=null)
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
     <h2><?php 
-    echo _t("Sahaha Web Setup - Step ").$step_no;
+    echo _t("CAPITUS Web Setup - Step ").$step_no;
     ?></h2>
 
     <?php
@@ -658,7 +658,7 @@ function shn_setup_adv_pwd_policy($step_no=null)
 	$step_no = isset($step_no)?$step_no:$_SESSION['setup_step_no'];
 	?>
     <h1><?php 
-    echo _t("Sahaha Web Setup - Step ").$step_no;
+    echo _t("CAPITUS Web Setup - Step ").$step_no;
     ?></h1>
     <?php
     display_errors();
@@ -805,12 +805,12 @@ function shn_setup_complete()
 	$oops_img = '<img align="bottom" src="theme/default/img/oops.png"/>';
 	?>
     <h1><?php 
-    echo _t("Sahaha Web Setup - Step ").$step_no;
+    echo _t("CAPITUS Web Setup - Step ").$step_no;
     ?></h1>
     <?php
     display_errors();
     shn_form_fopen('default','admin',array('req_message' => false));
-    shn_form_fsopen(_t('Starting Sahana'));
+    shn_form_fsopen(_t('Starting capitus'));
 
     $sahana_url = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/index.php\?.*$/','',$_SERVER['REQUEST_URI']);
     shn_form_hidden(array('shn_url'=>$sahana_url));
@@ -820,12 +820,12 @@ function shn_setup_complete()
     <p><b><u><?php echo $oops_img._t('WARNING: Security')?></u></b></p>
     <p><?php echo _t('To secure the configuration you have to remove write 
                  permissions from the configuration file sysconf.inc.php located in 
-                 the Sahana directory conf/');?></p>
+                 the CAPITUS directory conf/');?></p>
 
-    <p><?php echo _t('Click the button below to start Sahana');?> <?php
+    <p><?php echo _t('Click the button below to start CAPITUS');?> <?php
     }
     shn_form_fsclose();
-    shn_form_submit(_t('Start Sahana'));
+    shn_form_submit(_t('Start CAPITUS'));
     session_destroy();
     shn_form_fclose();
 }

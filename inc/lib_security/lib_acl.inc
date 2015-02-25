@@ -64,7 +64,7 @@ function shn_get_allowed_mods_current_user(){
 	if(shn_acl_is_enabled()==true){
 		$user=shn_current_user();
 		if($user==null){
-			$roles[ANONYMOUS]="Anonymous User";
+			$roles[ANONYMOUS]="Authorized User";
 		}else{
 			$roles=_shn_acl_get_roles($user);
 		}
@@ -100,7 +100,7 @@ function shn_get_enabled_mods_current_user(){
 
 	$user=shn_current_user();
 	if($user==null){
-		$roles[ANONYMOUS]="Anonymous User";
+		$roles[ANONYMOUS]="Authorized User";
 	}else{
 		$roles=_shn_acl_get_roles($user);
 	}
@@ -357,6 +357,7 @@ function shn_acl_deluser_roles($users){
  *@access public
  */
 function shn_acl_adduser_to_role($user,$role){
+//	require_once($global['approot'].'/mod/msg/lib_mail.inc');
 	global $global;
 	$db=$global['db'];
 	// Insert a new user,group mapping into the sys_user_to_group table
@@ -366,6 +367,20 @@ function shn_acl_adduser_to_role($user,$role){
 	if($res==false){
 		add_error($db->ErrorMsg());
 	}
+/* 
+	
+	if($res==true) {
+		$qry = "select p.full_name, u.user_name from person_uuid as p inner join users as u on p.p_uuid = u.p_uuid where p.p_uuid = '{$user}'";
+		$rs=$db->Execute($qry);
+		$fullname = $rs->fields['full_name'];
+		$email = $rs->fields['user_name'];
+		echo $user."|".$role."=";
+		//_shn_msg_send_mail_confirm_user($fullname,$email);
+		
+	}
+	if($res==true) {
+		echo $user."|".$role."=";
+	}*/
 	return $res;
 }
 
@@ -383,7 +398,7 @@ function _shn_acl_get_roles($user=rtbp,$anonymous=true){
 	$res=$db->Execute($q);
 	if(($res==null) ||($res->EOF)){
 		if($anonymous==true){
-			$roles[ANONYMOUS]="Anonymous User";
+			$roles[ANONYMOUS]="Authorized User";
 		}
 		return $roles;
 	}
@@ -566,10 +581,10 @@ function shn_acl_install($root_username,$root_passwd,$sahana_username,$sahana_pa
 	include_once($global['approot']."/inc/lib_uuid.inc");
 	$db=$global["db"];
 
-	$root=shn_auth_add_user("Admin User",$root_username,$root_passwd,ADMIN,ADMINUSER);
+	$root=shn_auth_add_user("Admin User",$root_username,$root_passwd,ADMIN,ADMINUSER,null,null,null,null,null,null);
 	//add a "root" user to ACL users and add to 'admin' role
 	//add a "registered" user to ACL users and add to 'registered' role
-	$reg_user=shn_auth_add_user("Sahana Registered User",$sahana_username,$sahana_password,REGISTERED,null);
+	$reg_user=shn_auth_add_user("Sahana Registered User",$sahana_username,$sahana_password,REGISTERED,null,null,null,null,null,null,null);
 	//$roles=array(ADMIN,REGISTERED,ANONYMOUS,SUPERUSER,ORGADMIN,VOLCOORDINATOR,CAMPADMIN);
 	$roles=array(ADMIN,SUPERUSER);
 	//$mods=array("home","pref");

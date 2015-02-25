@@ -10,6 +10,7 @@
 * @author     Sri Ganeshan <sri@opensource.lk>
 * @author     Ravindra De Silva <ravindra@opensource.lk><ravi@computer.org>
 * @edit		  Mifan Careem <mifan@opensource.lk> [Converting to use global $conf variables]
+* @edit		tharaka wilfred tharakawilfred85@gmail.com
 * @copyright  Lanka Software Foundation - http://www.opensource.lk
 * $license	  $Id: lib_mail.inc,v 1.8 2008/04/30 06:01:36 mifanc Exp $
 * @subpackage msg
@@ -17,7 +18,7 @@
 
 
 global $global;
-require_once($global['approot']."3rd/phpmailer/class.phpmailer.php");;
+require_once($global['approot']."3rd/phpmailer/class.phpmailer.php");
 
 /**
  * PHPMailer extension class
@@ -138,7 +139,7 @@ $mailer->Subject = $subject;
 
 $mailer->Body = $body;
 
-$mailer->AddAddress($receipient, '');
+$mailer->AddAddress($receipient, 'hari');
 
 //$mailer->AddAddress('hari1222@yahoo.com', 'hari');
 
@@ -160,4 +161,143 @@ else
 }
 $mailer->ClearAddresses();
 $mailer->ClearAttachments();
-}?> 
+}
+
+function _shn_msg_send_mail_confirm_user($fullname, $email) {
+
+// Grab our config settings
+require_once('mail_settings.inc');
+
+// Grab the InheritPhpMailer class
+//require_once('MailClass.inc');
+
+// instantiate the class
+$mailer = new InheritPhpMailer();
+
+//$receipient = $_POST['receipient'];
+
+$subject = $_POST["subject"];
+
+//$ccreceipient = $_POST['ccreceipients'];
+
+//$bccreceipient = $_POST['bccreceipients'];
+
+//$attachment = $_POST['attachments'];
+
+//$body = $_POST['contents'];
+
+$subject = "Confirmation - your account is active now";
+
+$mailer->Subject = $subject;
+
+$body_data = file_get_contents($global['approot']."mod/msg/confirm_body.txt");
+
+$mailer->Body = "Dear ".$fullname.",".$body_data."Admin User.";
+
+$mailer->AddAddress($email, 'hari');
+
+//$mailer->AddAddress('hari1222@yahoo.com', 'hari');
+
+//$mailer->AddAttachment($attachment, '');
+
+//$mailer->AddCC($ccreceipient, '');
+
+//$mailer->AddBCC($bccreceipient,'');
+
+//$mailer->AddReplyTo('kushi223344@yahoo.com', 'sri'); 
+
+if(!$mailer->Send())
+{
+  echo 'There was a problem sending this mail!';
+}
+else
+{
+  add_confirmation(_t('Mail sent successfully to '.$email));
+}
+$mailer->ClearAddresses();
+$mailer->ClearAttachments(); 
+}
+
+
+function _shn_msg_send_mail_admin($new_user,$user_email)
+{
+// Grab our config settings
+require_once('mail_settings.inc');
+
+// Grab the InheritPhpMailer class
+//require_once('MailClass.inc');
+
+// instantiate the class
+$mailer = new InheritPhpMailer();
+
+//$receipient = $_POST['receipient'];
+
+$subject = "Account registration request received";
+
+$ccreceipient = $_POST['ccreceipients'];
+
+$bccreceipient = $_POST['bccreceipients'];
+
+$attachment = $_POST['attachments'];
+
+//$body_data = file_get_contents($global['approot']."mod/msg/body.txt");
+
+$mailer->Subject = $subject;
+
+//$mailer->Body = $body_data;
+global $global;
+$db=$global['db'];
+
+$query = "select u.user_name from users as u inner join sys_user_to_group as p on u.p_uuid = p.p_uuid where p.group_id='1'";
+
+$res = $db->Execute($query);
+
+$receipients = array();
+$receipient_list = $res->fields['user_name'];
+		
+$receipients = split(',',$receipient_list);
+array_push($receipients, $user_email);
+
+$body_data = file_get_contents($global['approot']."mod/msg/body.txt");
+
+//$mailer->Body = $body_data;
+
+foreach($receipients as $receipient) {
+
+	$qry = "select p.full_name from person_uuid as p inner join users as u on p.p_uuid = u.p_uuid where u.user_name = '{$receipient}'";
+	
+	$rs = $db->Execute($qry);
+	$fullname = $rs->fields['full_name'];
+
+	$mailer->Body = "Dear ".$new_user.",".$body_data;
+
+	$mailer->AddAddress($receipient, 'hari');
+
+	$status = $mailer->Send();
+	
+		if($status) {
+			add_confirmation(_t('Mail sent successfully to '.$receipient));
+//echo $res;
+			$status_mail[$receipient] = 1;
+		} else {
+			$status_mail[$receipient] = 0;	
+		}
+		$status=0;
+		$mailer->ClearAddresses();
+	
+
+}
+//$mailer->AddAddress('hari1222@yahoo.com', 'hari');
+
+//$mailer->AddAttachment($attachment, '');
+
+//$mailer->AddCC($ccreceipient, '');
+
+//$mailer->AddBCC($bccreceipient,'');
+
+//$mailer->AddReplyTo('kushi223344@yahoo.com', 'sri'); 
+
+$mailer->ClearAttachments();
+}
+
+?> 

@@ -1,3 +1,6 @@
+/* @deprecated by waidyanatha [at] gmail [dot] com
+** @Comment     SAMBRO does not require these field options
+**
 
 -- GROUP TYPES
 INSERT INTO field_options VALUES('opt_group_type','fam','family');
@@ -168,6 +171,8 @@ INSERT INTO field_options VALUES ('opt_rs_cht_freq','30','the frequency of chart
 -- INSERT INTO modules VALUES ('admin', '0.2', TRUE);
 -- INSERT INTO modules VALUES ('gis', '0.2', TRUE);
 
+**/
+
 -- GIS WIKI VALUES
 INSERT INTO field_options (field_name,option_code,option_description) VALUES ('opt_wikimap_type','gen','General');
 INSERT INTO field_options (field_name,option_code,option_description) VALUES ('opt_wikimap_type','per','Person Status');
@@ -221,11 +226,16 @@ INSERT INTO sys_data_classifications VALUES ( 8, 'Unclassified');
 INSERT INTO sys_user_groups VALUES ( 1, 'Administrator (Admin)');
 INSERT INTO sys_user_groups VALUES ( 2, 'Registered User');
 INSERT INTO sys_user_groups VALUES ( 3, 'Anonymous User');
+/* @deprecated by waidyanatha [at] gmail [dot] com
+** @Comment     SAMBRO does not require these field options
+**
 INSERT INTO sys_user_groups VALUES ( 4, 'Super User (Head of Operations)');
 INSERT INTO sys_user_groups VALUES ( 5, 'Organization Admin');
 INSERT INTO sys_user_groups VALUES ( 6, 'Volunteer Coordinator');
 INSERT INTO sys_user_groups VALUES ( 7, 'Camp Admin');
 INSERT INTO sys_user_groups VALUES ( 8, 'Field Officer');
+
+**/
 
 -- INSERT DEFAULT SYS USER GROUP TO DATA CLASSIFICATION MAPPINGS
 -- admin role
@@ -313,6 +323,7 @@ INSERT INTO sys_group_to_data_classification VALUES ( 8, 8,"cru-");
 
 -- audit
 INSERT INTO sys_tablefields_to_data_classification VALUES ( "audit", 6);
+
 
 -- camp_admin
 

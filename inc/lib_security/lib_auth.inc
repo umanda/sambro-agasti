@@ -132,7 +132,7 @@ function shn_get_user_details($user){
  *@access public
  *@return bool
  */
-function shn_auth_add_user($account_name,$user_name, $user_password,$role,$pid=null,$extra_opts=null)
+function shn_auth_add_user($account_name,$user_name, $user_password,$role,$pid=null,$extra_opts=null,$country,$organization,$trial_period, $purpose, $list_users, $outcomes, $remarks)
 {
 	global $global;
 	$db=$global['db'];
@@ -183,7 +183,9 @@ function shn_auth_add_user($account_name,$user_name, $user_password,$role,$pid=n
 		}
 	}
 
-	$q="insert into person_uuid(p_uuid,full_name) values('{$pid}','{$account_name}')";
+$q="insert into person_uuid(p_uuid,full_name,country,organization,trial_period,purpose,list_users,outcomes,remarks)"
+."values('{$pid}','{$account_name}','{$country}','{$organization}','{$trial_period}','{$purpose}','{$list_users}','{$outcomes}','{$remarks}')";
+
 	$res=$db->Execute($q);
 	if($res==false){
 		add_error($db->ErrorMsg());
@@ -430,6 +432,39 @@ function shn_authenticate_user()
 			return $user_data;
 		}
 
+		$qry = "select p.trial_period, u.changed_timestamp from person_uuid as p inner join users as u on p.p_uuid = u.p_uuid where p.p_uuid = '{$uid}'";
+                $rs=$db->Execute($qry);
+                $period = $rs->fields['trial_period'];
+                $timestamp = $rs->fields['changed_timestamp'];
+
+                $is_expire = false;
+
+                $now_time=time();
+
+                if($period == "2 weeks") {
+                    $expire=$timestamp + 1036800;
+                        if($expire < $now_time) {
+                            $is_expire = true;
+                        }
+                } else if($period == "1 month") {
+                    $expire=$timestamp + 2073600;
+                        if($expire < $now_time) {
+                            $is_expire = true;
+                        }
+                } else if($period == "1 year"){
+                    $expire=$timestamp + 24883200;
+                        if($expire < $now_time) {
+                            $is_expire = true;
+                        }
+                }
+
+                if($is_expire == true) {
+                        add_error("Login Failed : You have been locked by an administrator of the system due to trial period has expired.");
+                        shn_acl_log_msg("Login Failed : Due to trial period has expired.",$uid,$user,1);
+                        $user_data["user_id"]=ANONYMOUS_USER;
+                        $user_data["user"]="Anonymous";
+                        return $user_data;
+                }
 
 		if(($status=='locked')&& (shn_acl_is_locking_enabled())){
 			$sql="SELECT changed_timestamp FROM password_event_log WHERE p_uuid='{$uid}' and event_type=1 order by changed_timestamp desc ";
@@ -457,6 +492,7 @@ function shn_authenticate_user()
 
 		}
 
+		
 		// banned user
 		if($status == 'banned'){
 			add_error("Login Failed : You have been banned by an administrator of the system.");
@@ -601,7 +637,7 @@ function shn_auth_add_user_cr(){
 		$error = true;
 	}
 
-	list($error,$user_name)=(shn_validate_user_name($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
+	list($error,$user_name)=(shn_valid_email($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,$_POST{"user_name"});
 
 	//for the moment return true
 	list($error,$password)=(shn_validate_password($_POST{"user_name"},$_POST{"password"}))?array($error,$_POST{"password"}):array(true,$_POST{"password"});
@@ -645,7 +681,7 @@ function shn_auth_self_signup_cr(){
 	$db=$global["db"];
 	$VARCHAR=100;
 
-	list($error,$user_name)=(shn_validate_user_name($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
+	list($error,$user_name)=(shn_valid_email($_POST{"user_name"}))?array($error,$_POST{"user_name"}):array(true,NULL);
 
 	//for the moment return true
 	list($error,$password)=(shn_validate_password($_POST{"user_name"},$_POST{"password"}))?array($error || false,$_POST{"password"}):array($error || true,$_POST{"password"});
@@ -866,6 +902,7 @@ function shn_auth_gen_captcha(){
 	imagepng($captcha);
 
 }
+
 
 
 /**

@@ -131,7 +131,7 @@ function shn_msg_adm_plugin_conf()
 	shn_form_fsopen(_t("Messaging Module SMS Gateway plugins"));
 ?>
 	<ul>
-	<li><?php echo _t("Sahana supports a modular messaging SMS gateway plugin architecture ");?> </li>
+	<li><?php echo _t("SAMBRO supports a modular messaging SMS gateway plugin architecture ");?> </li>
 	<li><?php echo _t("You can select which SMS gateway to use as your default");?></li>
     <li><?php echo _t("Select the default SMS gateway plugin from the detected plugins below:");?> </li>
     <li><?php echo _t("For more information on adding custom plugins, refer to the documentation within the mod/msg subdirectory");?> </li>

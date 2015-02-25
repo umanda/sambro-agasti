@@ -8,17 +8,18 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Sudheera R. Fernando <sudheera@opensource.lk>
-* @author		Mifan Careem <mifan@respere.com>
+* @author	Sudheera R. Fernando <sudheera@opensource.lk>
+* @author	Mifan Careem <mifan@respere.com>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package		sahana
+* @package	sahana
 * @subpackage	msg
 * @tutorial
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General
 * Public License (LGPL)
 */
 
-$conf['mod_msg_name'] = _("Messaging/Alerting Module");
+/*$conf['mod_msg_name'] = _("Messaging/Alerting Module");*/
+$conf['mod_msg_name'] = _("Alerting Module");
 $conf['mod_msg_menuorder'] = 2;
 
 $conf['input_file']="../mod/msg/kannel.conf";
@@ -52,11 +53,11 @@ $conf['mod_msg_plugin']='kannel';
  $conf['mod_msg_smtp_host'] = 'localhost';
  $conf['mod_msg_smtp_user'] = '';
  $conf['mod_msg_smtp_pass'] = '';
- $conf['mod_msg_smtp_sender_name'] = 'Samana Thetha';
- $conf['mod_msg_smtp_sender_email'] = 'samana.thetha@gmail.com';
+ $conf['mod_msg_smtp_sender_name'] = 'CAP ITU PROJECTS';
+ $conf['mod_msg_smtp_sender_email'] = 'kosol@itupo.org';
  $conf['mod_msg_smtp_port'] = 25;
  $conf['mod_msg_smtp_mode'] = 'enabled';
- $conf['mod_msg_mail_subject_prefix'] = '[HazInfoHub]';
+ $conf['mod_msg_mail_subject_prefix'] = '[CAPITUS]';
  
  
  // Dynamics for PHPmailer: sendmail|mail|smtp
@@ -76,20 +77,22 @@ $conf['mod_msg_plugin']='kannel';
  $conf['mod_msg_cap_voice_to_ivr']='xsl_cap_voice_ivr.xsl'; 
  $conf['mod_msg_cap_short_to_tweet']='xsl_cap_short_tweet.xsl';
  $conf['mod_msg_cap_voice_to_satellite']='xsl_cap_voice_satellite.xsl';
+ $conf['mod_msg_cap_short_to_dlabel']='xsl_cap_short_dlabel.xsl';
  $conf['mod_msg_cap_long_to_signage']='xsl_cap_long_signage.xsl';
- $conf['mod_msg_cap_version'] = '1.1';
- 
+  
 #####################################
 #      CAP Alert Options            #
 #####################################
 
+$conf['mod_msg_cap_version'] = '1.2';
+
  # Default Message identifier - Prefix
 
-$conf['alert_identifier'] = '2.49.0.1.144.1-scdmc.hih-';
+$conf['alert_identifier'] = '2.49.0.1.xxx.1-ITUPROJECTS-';
 
-# Default Time 
+# Default Time (change for the specific country)
 
-$conf['timezone'] = '+00.30';
+$conf['timezone'] = '+07.00';
 
 # To off using tiny url feature while sending a sms and send the sms with orginal url, set this variable as false 
 $conf['tinyurl'] = false;
@@ -101,5 +104,5 @@ $conf['number_of_recent_alerts_view'] = 10;
 $conf['records_per_page'] = 10;
 
 #This will add a default title name if the actual title name is empty
-$conf['default_title'] = 'RTBP Alert';
+$conf['default_title'] = 'CAPITUS-ALERT';
 ?>

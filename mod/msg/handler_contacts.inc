@@ -8,13 +8,13 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
 * @copyright    Respere - http://respere.com/
-* @package		sahana
+* @package	sahana
 * @subpackage   msg
 * @tutorial
-* @version		$Id: handler_contacts.inc,v 1.11 2008/06/01 07:08:52 priyanga Exp $;
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General
+* @version	$Id: handler_contacts.inc,v 1.11 2008/06/01 07:08:52 priyanga Exp $;
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General
 * Public License (LGPL)
 *  
 */
@@ -41,7 +41,7 @@ function shn_msg_form_add_contact($name,$full_name,$address,$group,$method,$mob1
 		$group = $group1;*/
 			//var_dump($group);
 		
-		} else {
+	} else {
 		$tmp="Add";
 		$person_id=NULL;
 		$id=$_GET['id'];
@@ -84,7 +84,7 @@ function shn_msg_form_add_contact($name,$full_name,$address,$group,$method,$mob1
 		shn_form_fsopen("Group Information");
 			//shn_form_multi_select("groups",array("one"=>"one","two"=>"two","three"=>"three"),"Groups : ");
 			//var_dump($group);
-			shn_form_multi_select("groups",shn_msg_basic_group_list(),"Groups : ", 'multiple="true"',array('value'=>$group));
+			shn_form_multi_select("groups",shn_msg_basic_group_list(),"Groups : ", 'multiple="true"',array("req"=>true, 'value'=>$group));
 		shn_form_fsclose();	
 		shn_form_fsopen("Method of Contacting");
 			echo "<p>Please select one of the following methods. Select option <u>'Both'</u> for receiving messages from both methods.</p>";
@@ -92,7 +92,8 @@ function shn_msg_form_add_contact($name,$full_name,$address,$group,$method,$mob1
 			//shn_shn_form_radio(array("mobile"=>"Mobile","email"=>"eMail","both"=>"Both"),"Preferred Method of Contacting : ",'option','',array('value'=>""));
 		shn_form_fsclose();
 		shn_form_fsopen("Mobile Number Information");
-			echo "<p>Please enter valid mobile number. Primary Mobile number will be selected automatically.</p>";
+			echo "<p>Please enter valid mobile number. Primary Mobile number will be selected automatically.<br/>";
+			echo "Mobile number should be entered country code + phone number excluding the + symbol or 00 (e.g. 945551212).</p>";
 			shn_form_text("Primary Mobile Number : ","mob1","size='10'",array('value'=>"$mob1"));
 			shn_form_text("Secondary Mobile Number : ","mob2","size='10'",array('value'=>"$mob2"));
 		shn_form_fsclose();
@@ -102,6 +103,10 @@ function shn_msg_form_add_contact($name,$full_name,$address,$group,$method,$mob1
 			shn_form_text("Secondary email : ","email2","size='20'",array('value'=>"$email2"));
 		shn_form_fsclose();
 	shn_form_submit("Save", $submit_opts = null);	
+
+//	$panel ="<a href='index.php?mod=msg&act=contact_submit'>Update</a>&nbsp;&nbsp;&nbsp;<a href='index.php?mod=msg&act=delete_contact&person_id=$person_id'>Delete</a>";
+//	print "<br><strong>$panel</strong>";
+
 	shn_form_fclose();
 }
 
@@ -149,6 +154,16 @@ function _shn_msg_add_contact($person_id)
 	$email2=$_POST['email2'];
 	$group=$_POST['groups'];
 	
+	/** 
+	 * @author Nuwan (waidyanatha@gmail.com)
+	 * @comment added the group cannot be null option to allow for deleting subscribers until such time another option is available
+	 * @todo add method to select individual and delete person, right now it is not available
+	**/
+	if(($group=="")||($group==NULL)){
+		add_error("<u>Group</u> is missing, please select, at least, one group! Add a group is you have not already.");
+		shn_msg_form_add_contact(); // calling the form
+	}
+
 	// check whether individual name was submitted
 	if($name!=""){
 		//print $method;
@@ -213,15 +228,16 @@ function _shn_msg_add_contact($person_id)
 	
 }
 
-/*
-@function	Store updated individual information in the db
+/**
+ * @function	Store updated individual information in the db
+ * @todo verify that group is not null
 */
 function _shn_msg_store_edit_contact($name, $fullname, $address, $method, $mobile1, $mobile2, $email1, $email2, $group,$person_id)
 {
 	global $global;
 	global $conf;
 	$db = $global['db'];
-	
+
 	// update person inforation
 	$q="update msg_people_contact set name='$name',full_name='$fullname',address='$address',primary_method='$method',primary_mobile='$mobile1',secondary_mobile='$mobile2',primary_email='$email1',secondary_email='$email2' where m_uuid='$person_id';";
 	//print $q;
@@ -260,6 +276,10 @@ function _shn_msg_store_edit_contact($name, $fullname, $address, $method, $mobil
 	}
 }
 
+/**
+ * @deprecated the $sql select statement is incomplete there fore this function is possibily not in use
+ *             Nuwan (nuwan@gmail.com)
+**/
 function is_contact_exist_in_group($group_id)
 {
 	global $global;	
@@ -274,9 +294,18 @@ function is_contact_exist_in_group($group_id)
 	}
 	return $is_exist;	
 }
+
+/**
+ * @author Nuwan (waidyanatha@gmail.com)
+ * @function delete an individual from the msg_person and msg_person_group tables
+ * @param $person_id
+*/
+
 	
-/*
-@function	Delete individual information from the db
+/**
+ * @function	Delete individual information from the db
+                this function is to be used with the submit buttom
+ * @todo create another delete function to use with RESTful API (see above)
 */
 function _shn_msg_delete_contact($person_id,$option)
 {

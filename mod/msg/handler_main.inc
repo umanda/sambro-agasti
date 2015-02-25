@@ -1,6 +1,6 @@
 <?php
 /**
-* The Sahana Messaging Module
+* The SAMBRO Messaging Module
 *
 * PHP version 5
 *
@@ -10,62 +10,159 @@
 *
 * @author	Sudheera R. Fernando <sudheera@opensource.lk>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package	sahana
+* @package	SAMBRO
 * @subpackage	rms
 * @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General
 * Public License (LGPL)
 */
 
-global $global;
-print $global['msg_jabber']->$connected;
-?>
+    global $conf;
+    
+    ?>
 
-<h1 align="center"><?= _t("Messaging Home")?> </h1>
 <div id="home">
-    <div>
-    <p><?= (_t("Messaging module is the main communicative root of the Sahana system. It is used to send SMS, e-mail alerts and/or messages to various groups and individuals before, after and during a disaster. It also provides a convenient way of grouping mobile phone numbers and e-mail addresses.")) ?></p></div>
-    <br></br>
-    <div><h3><b><em><?= (_t("Features Include:")) ?></em></b></h3></div>
-      
-    <ul>
-        <li><a href="index.php?mod=msg&act=send_console"><b><?= (_t("Messages:"))?></b></a><br><?= (_t("SMS and e-mail alerts/messages could be sent to any groups or individuals. This feature currently works only on Linux platform."))?></li>
-        <li><a href="index.php?mod=msg&act=add_contact_group"><b><?= (_t("Manage Groups:"))?></b></a><br><?= (_t("Each end user is provided the facility to create, customize and maintain various groups of SMS and e-mail contacts"))?></li>
-        <li><a href="index.php?mod=msg&act=new_alert"><b><?= (_t("CAP:"))?></b></a>
-<br><a href="index.php?mod=msg&act=new_alert"><?= (_t("New Alert"))?></a><?= (_t(" option enables end-user to create a new CAP alert. This will create an XML file containing the CAP message and store it in database."))?>
-<br><a href="index.php?mod=msg&act=voice_alert"><?= (_t("Voice Alert"))?></a><?= (_t(" option enables end-user to view voice a new CAP alert.And also user can hear the audio file."))?>
-<br><a href="index.php?mod=msg&act=view_alert"><?=(_t("View Alert"))?></a><?= (_t(" option enables end-user to view stored CAP messages. Using the send option on the view page you can transmit the alert via SMS."))?></li>
-    </ul>
+<img width="100%" src="res/img/cap-banner.png" style="padding-bottom:5px; margin-top:-10px">
+<h2>Welcome to Common Alerting Protocol-enabled International Telecommunication Union Software (CAPITUS)</h2>
 
-<?php 
-/** added by Nuwan Waidyanatha, 2010-05-02 to enable downloading of manuals and guidelines */
-?>
-    <br></br>
-    <div><h3><b><em><?= (_t("Read Me:")) ?></em></b></h3></div>
-    <a href="res/docs/Exercise_1_Sahana_CAP_Broker.pdf"> <img title="CAP Broker Guide" src="res/img/CAPGuide.jpg" alt="res/img/CAPGuide.jpg" width="180" height="60" border="0" /> </a>    
-
-<?php
-
-
-
-
-?>
+<div style="box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;">
+<table border="0">
+  <tr>
+    <td valign="top" width="350">
+      <p><strong>Video on Issuing Alerts with the Software</strong></p>
+	<iframe src="//player.vimeo.com/video/47523528" width="300" height="220" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/47523528">CAP Broker on a Tablet PC</a>.</p>
+    </td>
+    <td valign="top" width="400">
+      <p><strong>What can the software do</strong></p>
+      <ul>
+        <li>Manage subscriber and subsriber groups</li><br>
+        <li>Store CAP message templates as a "draft"</li><br>
+        <li>Issue CAP messages over:
+          <ul> 
+            <li>Email</li>
+            <li>SMS</li>
+            <li>RSS/Atom</li>
+            <li>Twitter</li>
+            <li>HTTP</li>
+          </ul></li>
+       </ul>
+    </td>
+    <td valign="top" width="400"><p>
+	<strong>Resources</strong></p>
+        <ul> 
+          <li><a href="https://www.incident.com/CAP/">CAP Cookbook</a> - all you need to know about CAP. This site will have links to all the CAP relevant resources:</li><br>
+          <li><strong>Videos:</strong>
+          <ul> 
+            <li>Managing subscribers</li>
+            <li>Creating CAP message templates</li>
+            <li>Issuing CAP messages</li>
+          </ul></li><br>
+          <li><strong>Quick reference guides:</strong>
+          <ul> 
+            <li>Managing subscribers</li>
+            <li>Creating CAP message templates</li>
+            <li>Issuing CAP messages</li>
+          </ul></li>
+        </ul>
+    </td>
+  </tr>
+</table>
 </div>
 
+<div style="box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;">
+<h3 style="padding:5px">FAQ</h3>
+</div>
 
-<!--<div id="home">
-<h2><?//php print _t("Messaging")?></h2>
+<?php
+ class rss {
+     var $feed;
 
-<br/>
-<h3>Use the New Message Option to create a New CAP message</h3>
-<p>This will create an xml file containing the CAP message and store it in a 
-temporary directory. You can view this file using 'View Messages' option</p>
+  function rss($feed) 
+    {   $this->feed = $feed;  }
+ 
+  function parse() 
+    {
+    $rss = simplexml_load_file($this->feed);
+    
 
-<br />
-<h3>Use the View Messages Option to view stored CAP messages</h3>
-<p>Two sample messages are already added to the list. You can view them by selecting
-one of them and pressing the 'view' button </p>
+    $rss_split = array();
+    foreach ($rss->channel->item as $item) {
 
-<br />
-<h3>XMPP Messaging</h3>
-<p>Comming soon to a Sahana near you ;-)</p>
-</div>-->
+    $title = (string) $item->title; // Title
+    $link   = (string) $item->link; // Url Link
+    $description = (string) $item->description; //Description
+    $rss_split[] = '<div>
+        <a href="'.$link.'" target="_blank" title="" >
+            '.$title.' 
+        </a>
+   <hr>
+          </div>
+';
+    }
+    return $rss_split;
+  }
+  function display($numrows,$head) 
+  {
+    $rss_split = $this->parse();
+
+    $i = 0;
+    $rss_data = '<div class="vas">
+           <div class="title-head">
+         '.$head.'
+           </div>
+         <div class="feeds-links">';
+    while ( $i < $numrows ) 
+   {
+      $rss_data .= $rss_split[$i];
+      $i++;
+    }
+    $trim = str_replace('', '',$this->feed);
+    $user = str_replace('&lang=en-us&format=rss_200','',$trim);
+    $rss_data.='</div></div>';
+    return $rss_data;
+  }
+}
+?>
+<style>
+.vas{
+    float:left;
+    width:30%;
+    padding:10px;
+}
+.title-head {
+    font-size:18px;
+    font-weight:bold;
+    text-align:left;
+    background-color:#006699;
+    color:#FFFFFF;
+    padding:5px;}
+.feeds-links {
+    text-align:left;
+    padding:5px;
+    border:1px solid #dedede;
+ }
+</style>
+
+<div>
+  <?php
+  include('rssclass.php');
+  $feedlist = new rss('http://www.gdacs.org/xml/rss.xml');
+  echo $feedlist->display(3,"Latest disaster alerts ");
+  /*
+  $feedlist = new rss('http://www.wmo.int/rss/index.php');
+  echo $feedlist->display(3,"WMO");
+  */
+ 
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/storms?format=xml');
+  echo $feedlist->display(3,"Storms News");
+
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/natural_disasters?format=xml');
+  echo $feedlist->display(3,"Natural Disasters News");
+
+
+  ?> 
+  </div>
+
+
+</div>
+
+<?php

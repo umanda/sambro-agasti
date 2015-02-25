@@ -1,6 +1,0 @@
-A dzud event is in affect for LOCATION: Actual Alert for Mongolia area with urgent priority severe winter weather issued by Hijaba 
-Msg: 2.49.0.1.144.1-scdmc.hih-1358226889 sent on 2013-01-15 06:01:38.
-Desc: On 2013-01-15 at 23:00:00 the Meteorological Department detected a severe winter storm developing in Northern Mongolia. It is expected to escalate affecting populations in LOCATIONS. The temperature will be -22 Centigrade with a 12 KMPH wind speeds causing a wind chill factor of -26 Centigrade. Herders are advised to execute their response plans in securing their livestock and homesteads in preparation for the DZUD event.
-More details 
-Web: 
-call: 

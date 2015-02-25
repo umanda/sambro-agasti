@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author Nuwan (waidyanatha@gmail.com)
+ * @Comment revise the view_alert component
+**/
+
 	global $global;
 	require_once $global['approot']."/inc/lib_locale/lib_locale.inc";
 	require_once('class_cap_alert.inc');
@@ -628,10 +634,10 @@
 	    //var_dump($info);
 	    //print()
 	   	shn_form_fsopen(_t("Information"));
-	    	$category = array('Geo'=>'Geo', 'Met'=>'Met', 'Safety'=>'Safety', 
+	    	$category = array('Geological'=>'Geo', 'Meteorological'=>'Met', 'Safety'=>'Safety', 
                       'Security'=>'Security', 'Rescue'=>'Rescue', 
-                      'Fire'=>'Fire', 'Health'=>'Health', 'Env'=>'Env', 
-                      'Transport'=>'Transport', 'Infra'=>'Infra', 
+                      'Fire'=>'Fire', 'Health'=>'Health', 'Environment'=>'Env', 
+                      'Transport'=>'Transport', 'Infrastracture'=>'Infra', 
                       'CBRNE'=>'CBRNE', 'Other'=>'Other');
     
 		    $session_lang = $_SESSION["locale"];
@@ -645,7 +651,8 @@
 		    }
 		    
 		    
-		    $language = array('si_LK'=>_t("Sinhala"),'tm_LK'=>_t("Tamil"),'en_US'=>_t("English")); 
+		    $language = array('en_US'=>_t("English")); 
+//		    $language = array('si_LK'=>_t("Sinhala"),'tm_LK'=>_t("Tamil"),'en_US'=>_t("English")); 
 		    //$language = array('sinhala'=>_t("Sinhala"),'tamil'=>_t("Tamil"),'english'=>_t("English")); 
 		    
 		    shn_form_select($language, _t("Language"), 'info_language', null, array('value'=>$info_language,'help'=>$help_language));		    
@@ -1075,14 +1082,18 @@
     		shn_alert_area_location_type($locationCategory, $locationType);	
     		//var_dump('area_areaDesc');
     		shn_ajax_text_look_up(array('Area Description'),array('area_areaDesc'),array('locationHint'),'index.php?mod=msg&act=get_location&stream=text',$array_values,true,array('br'=>false));    		
+
 			?>
-			<input type="button" value="Add" onclick="popup_show('popup', 'popup_drag', 'popup_exit', 'screen-center', 0, 0); return false;" />
+
+<!--			<input type="button" value="Add" onclick="popup_show('popup', 'popup_drag', 'popup_exit', 'screen-center', 0, 0); return false;" />
+-->
 			<div class="popup_window"     id="popup" style="display: none;">
 			<div class="form_header" id="popup_drag">
 			<img class="form_exit"   id="popup_exit" src="theme/default/img/cross2.png" alt="" /><center><strong>Add new location</strong></center></div>
 			
 			<div class="form_body">
 			<br/>
+
 			<?php
 			 
 			shn_form_text(_('Name'),'name','size="30"',array('help' => _('Enter full or part of the location name.'), 'req'=>true));

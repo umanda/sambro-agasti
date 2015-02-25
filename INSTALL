@@ -17,24 +17,24 @@ o Download Sahana latest release (preferably 'stable' version, if available).
 o Extract the downloaded file to a proper place (if apt-get use, then it'll do it automatically ;-)
   For example, 
   
-    /usr/share/sahana
+    /usr/share/capitus
 
   and create a symlink to exact location,
 
-    ln -s /usr/share/sahana/www/ /var/www/sahana
+    ln -s /usr/share/capitus/www/ /var/www/capitus
     
   or even extracting directly to /var/www/ (no syminks is necessary in this case).
   
   
-o Try to access Sahana from a client machine,
+o Try to access CAPITUS from a client machine,
 
-        http://<ip_address_of_the_sahana_machine>/sahana/
+        http://<ip_address_of_the_capitus_machine>capitus/
 
   If client and server are the same then use loop-back address,
 
-        http://127.0.0.1/sahana/
+        http://127.0.0.1/capitus/
       
-o "Sahana Web Setup" will appear on the browser.
+o "CAPITUS Web Setup" will appear on the browser.
 
 o Select appropriate seetings and click on "Setup Database" button. Normally default values will do (remember
   to enter correct password to connect with database).
@@ -47,6 +47,6 @@ o Click on "Write Configuration File" button.
 
 o Copy temporarily created configuration file to Sahana configuration directory, In GNU/Linux,
 
-        cp /tmp/config.inc /usr/share/sahana/conf/config.inc
+        cp /tmp/config.inc /usr/share/capitus/conf/config.inc
 
-o Click on "Start Sahana".
+o Click on "Start CAPITUS".

@@ -14,14 +14,15 @@
 * 	@author		Sudheera R. Fernando <sudheera@opensource.lk>
 * 	@author		Sriganeshan<sri@opensource.lk>
 * ----------
-* @author		Mifan Careem <mifan@respere.com>
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Mifan Careem <mifan@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
+* @author	Nuwan <nuwan@gmail.com>
 * @copyright    Lanka Software Foundation - http://www.opensource.lk
-* @package		sahana
+* @package	Sahana
 * @subpackage   msg
 * @tutorial
-* @version		$Id: main.inc,v 1.32 2008/08/02 15:29:45 priyanga Exp $
-* @license		http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
+* @version	$Id: main.inc,v 1.32 2008/08/02 15:29:45 priyanga Exp $
+* @license	http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License (LGPL)
 */
 
 
@@ -38,6 +39,7 @@ include_once $global['approot']."/inc/lib_ajax.inc";
 require_once $global['approot']."/inc/lib_misc.inc";
 require_once $global['approot']."/inc/lib_paging.inc";
 require_once $global['approot']."/inc/lib_security/lib_acl.inc";
+//include_once $global['approot']."/inc/handler_login.inc";
 
 include_once $global['approot']."/mod/msg/errors.inc";
 include_once($global['approot'].'/mod/msg/handler_contacts.inc');
@@ -48,7 +50,7 @@ include_once $global['approot']."/mod/msg/form_actions.inc";
 
 include_once $global['approot']."/mod/msg/handler_view_voice_alerts.inc";
 
-include_once $global['approot']."/mod/msg/add_location.inc";
+include_once $global['approot']."/mod/bsm/add_location.inc";
 
 include_once 'lib_msg_rss.inc';
 include_once 'lib_alert.inc';
@@ -73,68 +75,61 @@ function shn_msg_mainmenu()
     shn_mod_menuopen($conf['mod_msg_name']);
     shn_mod_menuitem("default", "Home", $module) ;
     
-    shn_sub_mod_menuopen("Contacts");
+    shn_sub_mod_menuopen("Subscribers");
 //     shn_sub_mod_menuitem("contacts",_("Contacts"),$module);
-    shn_sub_mod_menuitem("contact_individual",_("Add Contact"),$module);
-    //shn_sub_mod_menuitem("edit_contact_individual",_("Edit Contact"),$module);
-    shn_sub_mod_menuitem("contact_group",_("Contact List"),$module);
+    shn_sub_mod_menuitem("contact_individual",_("Add Subscriber"),$module);
+    //shn_sub_mod_menuitem("edit_contact_individual",_("Edit Subscriber"),$module);
+    shn_sub_mod_menuitem("contact_group",_("Subscriber List"),$module);
     shn_sub_mod_menuitem("add_contact_group",_("Add Group"),$module);
 //    shn_sub_mod_menuitem("add_group",_("Add Adhoc Group"),$module);
 //    shn_sub_mod_menuitem("edit_group",_("Edit Adhoc Group"),$module);
     shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Message Templates");
-    shn_sub_mod_menuitem("add_store_msg",_("Create a Message"),$module);
+  //  shn_sub_mod_menuopen("Message Templates");
+//    shn_sub_mod_menuitem("add_store_msg",_("Create a Message"),$module);
 //    shn_sub_mod_menuitem("add_temp_msg",_("Create Template Message"),$module);
-    shn_sub_mod_menuclose();
+   // shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Quick Messages");
-    shn_sub_mod_menuitem("send_console",_("Send Message"));
+    //shn_sub_mod_menuopen("Quick Messages");
+   // shn_sub_mod_menuitem("send_console",_("Send Message"));
 //     shn_sub_mod_menuitem("customized_messaging", _("Quick Messaging"), $module);
 //     shn_sub_mod_menuitem("send_group",_("Quick Group Messaging"),$module);
-    shn_sub_mod_menuitem("receive_console",_("View Receive Messages"));
-    shn_sub_mod_menuclose();
+   // shn_sub_mod_menuitem("receive_console",_("View Receive Messages"));
+  //  shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Reports");
+    shn_sub_mod_menuopen("Delivery Reports");
     shn_sub_mod_menuitem("sent_rpt",_("Sent Messages"),$module);
     shn_sub_mod_menuitem("rcvd_rpt",_("Received Messages"),$module);
 //     shn_sub_mod_menuitem("contact_rpt",_("Contact List"),$module);
 //     shn_sub_mod_menuitem("list_group",_("List Adhoc Group"),$module);
     shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Surveys");
-    shn_sub_mod_menuitem("send_survey", _("Send a Survey"), $module);
-    shn_sub_mod_menuitem("survey_rpt",_("View Survey Reports"),$module);
-    shn_sub_mod_menuclose();
+    //shn_sub_mod_menuopen("Surveys");
+    //shn_sub_mod_menuitem("send_survey", _("Send a Survey"), $module);
+    //shn_sub_mod_menuitem("survey_rpt",_("View Survey Reports"),$module);
+   // shn_sub_mod_menuclose();
     
-    shn_sub_mod_menuopen("Alerts");
-    	shn_sub_mod_menuitem("new_alert",_("Create New Alert"),$module);
-    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
-//    	shn_sub_mod_menuitem("view_voice_alert",_("View Voice Alerts"),$module);
-//    	shn_sub_mod_menuitem("del_alert",_("Remove"),$module);
-    shn_sub_mod_menuclose();
-    shn_sub_mod_menuopen("Published Alerts");
-    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
-    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
-    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
-    shn_sub_mod_menuclose();
-    shn_sub_mod_menuopen("Alert Templates");
+    shn_sub_mod_menuopen("Manage Templates");
     	shn_sub_mod_menuitem("new_alert_temp",_("Add New Template"),$module);
     	shn_sub_mod_menuitem("view_alert_temp",_("Edit Templates"),$module);
 //    	shn_sub_mod_menuitem("update_alert_temp",_("Update"),$module);
 //    	shn_sub_mod_menuitem("del_alert_temp",_("Remove"),$module);
     shn_sub_mod_menuclose();
-    
-// removed this section is redundant now - nuwan    
-//    shn_sub_mod_menuopen("Common Alerting Protocol");
-//    shn_sub_mod_menuitem("cap_new", _("New Alert"), $module);
-//    shn_sub_mod_menuitem("cap_view", _("View Alert"), $module);
-//    shn_sub_mod_menuitem("cap_edit", _("Edit Alert"), $module);
-//    shn_sub_mod_menuitem("cap_upload", _("Upload CAP File"), $module);
-//    shn_sub_mod_menuitem("cap_form", _("CAP Form"), $module);
+
+    shn_sub_mod_menuopen("ISSUE ALERT!");
+    	shn_sub_mod_menuitem("new_alert",_("Create New Alert"),$module);
+//    	shn_sub_mod_menuitem("view_alert",_("View Sent Alerts"),$module);
+//    	shn_sub_mod_menuitem("view_voice_alert",_("View Voice Alerts"),$module);
+//    	shn_sub_mod_menuitem("del_alert",_("Remove"),$module);
+    shn_mod_menuitem("view_list_alert", "Search Alerts", $module) ;
+    shn_mod_menuitem("view_recent_alerts", "Recent Alerts", $module) ;
+    shn_sub_mod_menuclose();
+//    shn_sub_mod_menuopen("View Published Alerts");
+//    shn_mod_menuitem("view_list_alert", "View All WEB Alerts", $module) ;
+//    shn_mod_menuitem("view_recent_alerts", "View Recent WEB Alerts", $module) ;
+//    shn_mod_menuitem("view_voice_alert",_("View Voice Alert"),$module);
 //    shn_sub_mod_menuclose();
     
-      
 /*
  *  Rearranged below menu items to fall in above categories  
     shn_sub_mod_menuopen("--Messages");
@@ -201,8 +196,15 @@ function shn_msg_view_recent_alerts()
 
 function shn_msg_cap_form()
 {
-	include_once 'shn_cap_form.inc';
-	_shn_msg_cap_form();
+	if($_SESSION['user'] != "Anonymous")
+        {
+		include_once 'shn_cap_form.inc';
+		_shn_msg_cap_form();
+	}
+	else
+        {
+                add_error(_('Sorry you do not have permission to access this'));
+        }
 }
 
 
@@ -292,9 +294,18 @@ function shn_msg_default()
  */
 function shn_msg_new_alert()
 {
-	unset($_SESSION['is_template']);
-	include_once 'new_alert.inc';
-	_shn_new_alert();
+	if($_SESSION['user'] != "Anonymous")
+        {
+
+		unset($_SESSION['is_template']);
+		include_once 'new_alert.inc';
+		_shn_new_alert();
+	}
+        else
+        {
+                add_error(_('Sorry you do not have permission to access this'));
+        }
+
 }
 
 /**
@@ -315,13 +326,20 @@ function shn_msg_new_alert()
  */
 function shn_msg_new_alert_temp()
 {
-	include_once ('lib_alert_form.inc');
+	if($_SESSION['user'] != "Anonymous")
+	{
+		include_once ('lib_alert_form.inc');
 	
-	// create alert template
-	echo '<h2>'._t('Alert Template').'</h2>';
-	$_SESSION['is_template'] = true;
-	shn_msg_alert_form("new_template");
-	//shn_msg_alert_template_gen();
+		// create alert template
+		echo '<h2>'._t('Alert Template').'</h2>';
+		$_SESSION['is_template'] = true;
+		shn_msg_alert_form("new_template");
+		//shn_msg_alert_template_gen();
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 /**
@@ -345,6 +363,8 @@ function shn_msg_pick_template()
  */
 function shn_msg_view_alert_temp()
 {
+if($_SESSION['user'] != "Anonymous")
+	{
 	include_once ('lib_alert.inc');
 	
 	$id = $_GET['id'];
@@ -357,6 +377,11 @@ function shn_msg_view_alert_temp()
 		$template_list = shn_msg_alerts_list_generator("template"); // get the list of alerts/templates
 		shn_msg_alerts_list_form("template",$template_list); // pass it to UI
 	}
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 /**
@@ -364,6 +389,8 @@ function shn_msg_view_alert_temp()
  */
 function shn_msg_update_alert($alert_id = null)
 {
+if($_SESSION['user'] != "Anonymous")
+	{
 	if($_GET['id'] != null || $_Get['id'] != '')
 	{
 		$id=$_GET['id'];
@@ -375,6 +402,11 @@ function shn_msg_update_alert($alert_id = null)
 	//print "Updating the Alert (alert id = $id)!";
 	//$_SESSION['is_template'] = true;
 	shn_msg_alert_grabber($id);
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 /**
@@ -548,17 +580,30 @@ function shn_msg_alert_new()
 */
 function shn_msg_add_contact_group()
 {
+if($_SESSION['user'] != "Anonymous")
+	{
 	global $global;
     $module = $global['module'];
 	include_once($global['approot'].'/mod/msg/handler_contacts.inc');
 	shn_msg_contact_add_group();
 }
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
+}
 
 function shn_msg_add_group()
 {
+if($_SESSION['user'] != "Anonymous")
+        {
     include_once('message_forms.inc');
     _shn_msg_add_group();
-    
+    }
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 function shn_msg_add_group_actions()
@@ -673,11 +718,18 @@ function shn_msg_customized_messaging()
 
 function shn_msg_contact_individual()
 {
-	global $global;
-    $module = $global['module'];
+	if($_SESSION['user'] != "Anonymous")
+	{
+		global $global;
+	        $module = $global['module'];
 	
-    //shn_msg_contact_add_individual();
-    shn_msg_form_add_contact();
+	        //shn_msg_contact_add_individual();
+	        shn_msg_form_add_contact();
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 /*
@@ -686,13 +738,21 @@ function shn_msg_contact_individual()
 */
 function shn_msg_contact_group()
 {
-	global $global;
-    $module = $global['module'];
-	include_once($global['approot'].'/mod/msg/handler_contacts.inc');
+	if($_SESSION['user'] != "Anonymous")
+        {
+
+		global $global;
+       	        $module = $global['module'];
+		include_once($global['approot'].'/mod/msg/handler_contacts.inc');
 	
-	print "<h2>Contact Group List</h2>";
-	shn_msg_list_groups();
-	//shn_msg_list_all_groups();
+		print "<h2>Contact Group List</h2>";
+		shn_msg_list_groups();
+		//shn_msg_list_all_groups();
+	}
+        else
+        {
+                add_error(_('Sorry you do not have permission to access this'));
+        }
 }
 
 /*
@@ -815,16 +875,30 @@ function shn_msg_add_store_msg()
 
 function shn_msg_sent_rpt()
 {
-	global $global;
-	include_once($global['approot'].'/mod/msg/msg_reports.inc');
-	shn_msg_basic_sent_report();
+	if($_SESSION['user'] != "Anonymous")
+	{
+		global $global;
+		include_once($global['approot'].'/mod/msg/msg_reports.inc');
+		shn_msg_basic_sent_report();
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 function shn_msg_rcvd_rpt()
 {
-	global $global;
-	include_once($global['approot'].'/mod/msg/msg_reports.inc');
-	shn_msg_basic_rcvd_report();
+	if($_SESSION['user'] != "Anonymous")
+        {
+		global $global;
+		include_once($global['approot'].'/mod/msg/msg_reports.inc');
+		shn_msg_basic_rcvd_report();
+	}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
 }
 
 function shn_msg_add_temp_msg()

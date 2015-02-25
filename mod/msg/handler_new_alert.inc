@@ -81,6 +81,7 @@ function _shn_msg_cap_newalertmain()
     $id = time();
     $today = date("Y-m-d");
     $message_id = $conf['alert_identifier'].$id;
+    $user = $_SESSION['user'];
     //print $today;
     
     $status = array('Actual'=>'Actual', 'Exercise'=>'Exercise', 
@@ -98,7 +99,7 @@ function _shn_msg_cap_newalertmain()
     shn_form_hidden(array('time'=>$id,'stat'=>$status[_t("Actual")], 'name'=> $name, 'mode'=>$mode));
     shn_form_text(_t("Message Identifier"),'identifier',null,array('value'=>$message_id,'help'=>$help_identifire, 'req'=>true));
     shn_form_date(_t("Date Created"),'date_created',array('value'=>$today, 'req' => true));
-    shn_form_text(_t("Sender"),'sender','class=""',array('help'=>$help_sender, 'req' => true));
+    shn_form_text(_t("Sender"),'sender','class=""',array('value'=>$user,'help'=>$help_sender, 'req' => true));
     shn_form_text(_t("File Type"),'file_type',null, array('value'=>$mode, 'req' => true));
     shn_form_text(_t("File Version"),'file_version',null, array('req' => true, 'value'=> $conf['mod_msg_cap_version'], 'help'=>_t('Indicate the CAP/EDXL Version: e.g 1.01')));
     //shn_form_upload(_('Upload file'), 'upload', null);
@@ -167,10 +168,11 @@ function _shn_msg_new_alert_db($type=null)
 	$insert_array['alert_uuid'] = trim($_POST['identifier']);
 	$insert_array['alert_name'] = trim($_POST['name']);
 	$insert_array['file_type'] = ($_POST['file_type'])? trim($_POST['file_type']) : "cap";
-	$insert_array['file_version'] = ($_POST['file_version'])? trim($_POST['file_version']) : "1.1";
+	$insert_array['file_version'] = ($_POST['file_version'])? trim($_POST['file_version']) : "1.2";
 	$insert_array['author'] = trim($_POST['sender']);
 	$insert_array['date_created'] = trim($_POST['date_created']);
 	$insert_array['type'] = trim($_POST['mode']);
+	$insert_array['web_enabled'] = "1";
 	
 	$_SESSION['msg']['new']['alert'] = $insert_array;
 	

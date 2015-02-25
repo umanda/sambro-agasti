@@ -9,32 +9,158 @@ function shn_home_default()
     
     ?>
 
-    <div id="home">
+<div id="home">
+<img width="100%" src="res/img/cap-banner.png" style="padding-bottom:5px; margin-top:-10px">
+<h2>Welcome to Common Alerting Protocol-enabled International Telecommunication Union Software (CAPITUS)</h2>
+<table border="0">
+  <tr>
+    <td valign="top" width="350"><p>
+	<strong>What is CAP?</strong></p>      
+	<iframe width="300" height="180" src="//www.youtube.com/embed/n0iKp60jjtY?list=PL23CB283949653EDC" frameborder="0" allowfullscreen></iframe></p>
+	<strong>CAPITUS?</strong>
+        <p>The <a href="http://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.html">Common Alerting Protocol</a>, CAP-enabled, ITU Software (CAPITUS) is part of a multi phase project. The self-training aids and demo tools for advocating the uptake of CAP to foster an interoperable platform for exchanging national and cross-boarder alerts and warnings for Multi-agency Situational-awareness. This project is sponsored by the ITU Development Sector Emergency Communication program.
 
-    <?php echo "<h1>"._t("Welcome to Session 8A: Introduction to Operationalizing Common Alerting Protocol (CAP)")."</h1>"?>
-<!--        <img src="theme/default/img/home_pic1.png" align="left" /> -->
-    <p><?php echo "<h3>"._t("NBTC-ITU Training Workshop on the Use of Telecommunication/ICTs for Disaster Management")."</h3>"; ?><br><br>
-	 <?php echo _t(""); ?></p>
+The CAPITUS Project has three primary intentions: 
+        <ul>
+          <li>Offer a training module for member states to learn and experminet with CAP-enabled early warning software and procedures</li><br>
+          <li>Assist member states with developing and implementing their Country CAP Profiles</li><br>
+          <li>Suport the initiative for worldwide CAP Adaptation and proliferation</li>
+        </ul>
+</p>
+<p><strong>Other CAP Videos to come</strong></p>
+<ul>
+  <li>How to register a user</li>
+  <li>How to manage subscribets</li>
+  <li>How to create templates</li>
+  <li>How to issue an alert</li>
+</ul>
+</td>
+    <td valign="top" width="400">
+      <p><strong>How to use this CAP-enabled Module</strong></p>
+       <ol>
+          <li>Learn <strong>about the CAP standard</strong> and the software through a <a href="http://www.youtube.com/watch?v=G7WOq5giddI">case study</a> with the use of <I>CAP messages in Public Health Alerting</I>.</li><br>
+          <li>Ask for an account from the CAPITUS administrators: <strong>Request Account</strong></li><br>
+	  <li>Experiment with <strong>issuing CAP messages</strong> over technologies like SMS, Email, RSS/Atom, Twitter using CAPITUS. [<a href="#">Video</a> | <a href="#">PDF</a>]</li><br>
+	  <li>Formulate your <strong>Country CAP Profile</strong> for all-hazards all-media warnings through a stakeholder participatory approach.</li><br>
+	  <li>Request for your <strong>own localized instance of CAPITUS</strong></a>. Then use it with stakeholders to experiment and demonstrate the pros and cons of adopting CAP standard and CAP-enabled software for a National Eaerly waring and Situational-Awareness.</li><br>
+	  <li>Software developers can <a href="https://github.com/waidyanatha/sambro-agasti">download</a> the <strong>H-FOSS code</strong>. Under the GNU License, it is free to use, change, and redistribute</li><br>
+	  <li>Advance users would <strong>foster a Multi-Agency Situational-Awareness</strong> platform in their jurisdictions. [<a href="#">Video</a> | <a href="#">PDF</a>]</li>
+       </ol>
+    </td>
 
-<table border="-1">
-<tbody>
-<tr>
-<td><a href="res/docs/Exercise_1_Sahana_CAP_Broker.pdf"><h2>Exercise 1</h2></td>
-<td><a href="res/docs/Exercise_2_SWOT_Analysis.doc"><h2>Exercise 2</h2></td>
-<td><a href="https://docs.google.com/spreadsheet/viewform?formkey=dHN4VlQ1emU4MURleEFPUjVNVkNRTkE6MQ"><h2>Exercise 3</h2></td>
-<td><a href="res/docs/Exercise_4_Incident_Reporting.doc"><h2>Exercise 4</h2></td>
-</tr>
-<tr>
-<td><a href="res/docs/Exercise_1_Sahana_CAP_Broker.pdf"> <img title="CAP Broker Guide" src="res/img/CAPGuide.jpg" alt="res/img/CAPGuide.jpg" width="180" height="60" border="0" /> </a></td>
-<td><a href="res/docs/Exercise_2_SWOT_Analysis.doc"> <img title="SWOT Analysis" src="res/img/SWOT.jpg" alt="res/img/SWOT.jpg"" width="160" height="75" border="0" /></a></td>
-<td><a href="https://docs.google.com/spreadsheet/viewform?formkey=dHN4VlQ1emU4MURleEFPUjVNVkNRTkE6MQ"> <img title="action plan" src="res/img/ActionPlan.jpg" alt="res/img/ActionPlan.jpg" width="180" height="90" border="0" /></a></td>
-<td><a href="res/docs/Exercise_4_Incident_Reporting.doc"> <img title="incident reports" src="res/img/incidents.jpeg" alt="res/img/incidents.jpeg" width="180" height="90" border="0" /></a></td>
-</tr>
-</tbody>
+    <td valign="top" width="400">
+      <p><strong>Resources</strong></p>
+       <ul>
+          <li><a href="https://github.com/waidyanatha/sambro-agasti/wiki">WIKI</a> with all that is documented about the software:</li>
+          <ul>
+            <li>How to <a href="https://github.com/waidyanatha/sambro-agasti/wiki/Installation">install</a> the software</li>
+            <li>how to administer <a href"https://github.com/waidyanatha/sambro-agasti/wiki/User-Access-Control">users</a></li>
+            <li>how to configure and operationalize your own<a href"#"> country instance</a></li>
+          </ul>
+          <li><a href="https://www.incident.com/CAP/">CAP Cookbook</a> - all you need to know about CAP. This site will have links to all the CAP relevant resources:</li><br>
+          <li><a href="http://www.wmo.int/pages/prog/amp/pwsp/CAPWorkshopDocs2014.html">2014 CAP Implementation Workshop</a> - was held in Negombo, Sri Lanka (17-8th June 2014). The resourece provides access to all CAP presentations and CAP related literature archived since 2006.</li><br>
+	    <li><a href="#">OASIS</a> - the Organization for the Advancement of Structured Information Standards. especially the OASIS Emergency Management Technical Committee (OASIS EM-TC) - is the organization that systematically manages the Emergency Data Exchange Language (EDXL) approved CAP technical standard is currently at <a href="http://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.html">version 1.2.</a>.</li><br>
+	    <li><a href="#">Sahana Alerting and Messaging Broker</a> (SAMBRO) - is a Free and Open Source Software designed for CAP-enabled messaging and implementing a multi-agency sitiational-awareness platform</li><br>
+	    <li><a href="">MASAS - Canadian Multi Agency Situational Awareness System</a> - is developed using ESRI products such as ArcGIS as a platform to add layers.</li><br>
+	    <li><a href="https://alert-hub.appspot.com/">Google Alerthub</a> - offers a tool to <a href="https://cap-validator.appspot.com/">validate CAP messages</a>, with the option of validating against an available CAP Profile. Valid messages, can be easily integrated with Google's Alerthub for disseminating public alerts.</li><br>
+	    <li><a href="http://www.internetalerts.org">Federation for Internet Alerts</a> - is a consortium that is developing guidelines for, specifically, on-line advertising systems to publish CAP messages.</li>
+       </ul>
+    </td>
+  </tr>
 </table>
-</br>
 
-    </div>
+<?php
+ class rss {
+     var $feed;
+
+  function rss($feed) 
+    {   $this->feed = $feed;  }
+ 
+  function parse() 
+    {
+    $rss = simplexml_load_file($this->feed);
+    
+
+    $rss_split = array();
+    foreach ($rss->channel->item as $item) {
+
+    $title = (string) $item->title; // Title
+    $link   = (string) $item->link; // Url Link
+    $description = (string) $item->description; //Description
+    $rss_split[] = '<div>
+        <a href="'.$link.'" target="_blank" title="" >
+            '.$title.' 
+        </a>
+   <hr>
+          </div>
+';
+    }
+    return $rss_split;
+  }
+  function display($numrows,$head) 
+  {
+    $rss_split = $this->parse();
+
+    $i = 0;
+    $rss_data = '<div class="vas">
+           <div class="title-head">
+         '.$head.'
+           </div>
+         <div class="feeds-links">';
+    while ( $i < $numrows ) 
+   {
+      $rss_data .= $rss_split[$i];
+      $i++;
+    }
+    $trim = str_replace('', '',$this->feed);
+    $user = str_replace('&lang=en-us&format=rss_200','',$trim);
+    $rss_data.='</div></div>';
+    return $rss_data;
+  }
+}
+?>
+<style>
+.vas{
+    float:left;
+    width:30%;
+    padding:10px;
+}
+.title-head {
+    font-size:18px;
+    font-weight:bold;
+    text-align:left;
+    background-color:#006699;
+    color:#FFFFFF;
+    padding:5px;}
+.feeds-links {
+    text-align:left;
+    padding:5px;
+    border:1px solid #dedede;
+ }
+</style>
+
+<div>
+  <?php
+  include('rssclass.php');
+  $feedlist = new rss('http://www.gdacs.org/xml/rss.xml');
+  echo $feedlist->display(3,"Latest disaster alerts ");
+  /*
+  $feedlist = new rss('http://www.wmo.int/rss/index.php');
+  echo $feedlist->display(3,"WMO");
+  */
+ 
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/storms?format=xml');
+  echo $feedlist->display(3,"Storms News");
+
+  $feedlist = new rss('http://feeds.sciencedaily.com/sciencedaily/earth_climate/natural_disasters?format=xml');
+  echo $feedlist->display(3,"Natural Disasters News");
+
+
+  ?> 
+  </div>
+
+
+</div>
 
 <?php
 }
@@ -55,7 +181,7 @@ function _shn_home_module_info($module, $description)
  */
 function shn_home_welcome(){
 	global $global;
-	echo _t("<h2>Welcome to Session 8A: Introduction to Operationalizing Common Alerting Protocol (CAP)</h2>")
+	echo _t("<h2>Welcome to the RTBP</h2>")
 	?>
 <h4><?php echo _t("Congratulations !. You have successfully installed Sahana.")?></h4>
 <p><?php echo _t("You may need to customize sahana according to your requirements.") ?></p>
@@ -172,6 +298,11 @@ function shn_home_faq(){
  * Enable disable user feedback user interface.
  */
 function shn_home_userfb(){
+
+if($_SESSION['user'] != "Anonymous")
+	{
+
+
     echo "<h2>"._t("Help / User feedback preferences")."</h2>";
 	shn_form_fopen("userfb_cr","home",array("req"=>false));
 	shn_form_fsopen(_t("Enable or disable help and user feeback"));
@@ -182,6 +313,13 @@ function shn_home_userfb(){
 	shn_form_submit(_t("Cancel"),"name='cancel'");
 	shn_form_submit(_t("Save"));
 	shn_form_fclose();
+
+}
+	else
+	{
+		add_error(_('Sorry you do not have permission to access this'));
+	}
+
 }
 	
 function shn_home_userfb_cr(){
@@ -227,172 +365,45 @@ function shn_XST_home_default() {
 
 }
 function shn_home_contact(){
-?>
-	<a href="http://sahanafoundation.org/contact-us/">
-<?php
+	echo _t('<br><br><h2>Contact us</h2>');
+	echo _t("<br><br>");
+	echo _t("<b>For more details contact,</b><br><br> ");
+	echo _t("ITU/BDT Office<br>");
+	echo _t("Bangkok, Thailand<br>");
+	echo _t("Email : admin@capitus.th<br>");
+	echo _t("<br><br> <br>");
+    
 		 }
 		 
 		 
-		 function shn_home_manual(){
-echo _t('<br><br><h2>User Manual</h2>');
-echo _t("<br><br>");
-echo _t("<a href='#'>Click here to download user manual </a><br><br> ");
-echo _t("<br><br> <br>");
+function shn_home_manual(){
+	echo _t('<br><br><h2>User Manual</h2>');
+	echo _t("<br><br>");
+	echo _t("<a href='#'>Click here to download user manual </a><br><br> ");
+	echo _t("<br><br> <br>");
     
 		 }
 function shn_home_about(){
-	echo _t('<br><br><h2>About Sahana Disaster Management System</h2><br><br>');
-	echo _t('The Sahana Software Foundation is dedicated to the mission of saving lives by providing information management solutions that enable organizations and communities to better prepare for and respond to disasters. We develop free and open source software and provide services that help solve concrete problems and bring efficiencies to disaster response coordination between governments, aid organizations, civil society and the survivors themselves, such as: Reuniting separated families through registering missing and found persons. Tracking and managing requests for help from individuals and organizations. Tracking organizations and programs responding to the disaster, including the coverage and balance in the distribution of aid, providing transparency in the response effort. Enabling relevant sharing of information across organizations, connecting donors, volunteers, NGOs, and government organizations, enabling them to operate as one. For the more visually oriented, check out our Sahana Software Foundation overview presentation:');
-?>
-<div id="home">
-	<br><a href="http://sahanafoundation.org/about-us/"><h2>Visit Us at: www.sahanafoundation.org</h2>
-</div>
-<?php
-	 
-     /*	global $global,$conf;
-	echo _t('<h2>About Sahana</h2>');
-	if(file_exists($global['approot']."about.inc")){
-		include_once $global['approot']."about.inc";
-		
-		global $about;		
-		if(function_exists("apache_get_version")){
-			$about['apache_version'] = apache_get_version();
-		}else{
-			$about['apache_version'] = _t("Unable to determine Apache HTTPD version.");
-		}
-		
-		$about['php_version'] = phpversion();
-		
-		$sql = "SHOW VARIABLES LIKE \"character_set_database\";";
-		$res = $global['db']->Execute($sql);
-		$about['database_charset']=$res->fields['Value'];
+	echo _t('<br><br><h2>About the CAP ITU Sofotware</h2>');
 
-        $sql = "SHOW VARIABLES LIKE \"collation_database\";";
-        $res = $global['db']->Execute($sql);
-        $about['database_collation']=$res->fields['Value'];		
-		
-		
-		$sql = "SELECT VERSION()";
-		$res = $global['db']->Execute($sql);
-		$about['mysql_version'] = $res->Fields(0);
-		
-		?>
-		<table border="0" class="about-sahana">
-		  <tr>
-		      <th colspan="2" valign="middle"><?php echo 'System Information' ?></th>
-		  </tr>
-		  <tr>
-		      <td width="40%"><?php echo _t("Sahana Version") ?></td>
-		      <td><?php echo $about['version']?></td>
-		  </tr>
-		  <tr>
-              <td><?php echo _t("Release") ?></td>
-              <td><?php echo $about['release'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Release Information")?></td>
-              <td><?php echo $about['release_info'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Release Date")?></td>
-              <td><?php echo $about['release_date'] ?></td>
-          </tr>
-          <tr>
-            <th colspan="2" valign="middle"><?php echo 'Database Information' ?></th>
-          </tr>
-          <tr>
-              <td><?php echo _t("Database Name")?></td>
-              <td><?php echo $conf['db_name'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Database Character Set")?></td>
-              <td><?php echo $about['database_charset'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Database Collation")?></td>
-              <td><?php echo $about['database_collation'] ?></td>
-          </tr>
-          <tr>
-              <th colspan="2" valign="middle"><?php echo 'Environment Information' ?></th>
-          </tr>
-          <tr>
-              <td><?php echo _t("Apache HTTPD Version")?></td>
-              <td><?php echo $about['apache_version'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("PHP Version")?></td>
-              <td><?php echo $about['php_version'] ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("MySQL Version")?></td>
-              <td><?php echo $about['mysql_version'] ?></td>
-          </tr>
-          <tr>
-              <th colspan="2" valign="middle"><?php echo 'System Administrator Information' ?></th>
-          </tr>
-          <tr>
-              <td><?php echo _t("Administrator Name")?></td>
-              <td><?php echo ((($conf['root_name']!=null) && (strlen(trim($conf['root_name']))>0))?($conf['root_name']):_t('Information not available')) ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Email")?></td>
-              <td><?php echo ((($conf['root_email']!=null) && (strlen(trim($conf['root_email']))>0))?($conf['root_email']):_t('Information not available')) ?></td>
-          </tr>
-          <tr>
-              <td><?php echo _t("Telephone")?></td>
-              <td><?php echo ((($conf['root_tel']!=null) && (strlen(trim($conf['root_tel']))>0))?($conf['root_tel']):_t('Information not available')) ?></td>
-          </tr>          
-		</table>
-		<br/>
-		<hr/>
-		
-		<?php
-		  $readme = file_get_contents($global['approot']."README");
-		?>
-		      <script type="text/javascript">
-		          var flag=true;
-		          function showReadme(){
-		              var readmeBlock = document.getElementById('readme');
-                      if(readmeBlock){
-		                  if(flag==true){
-		                      readmeBlock.style.display='block';
-		                      flag=false;
-		                  }else{
-		                      readmeBlock.style.display='none';
-		                      flag=true;
-		                  }
-		              }
-		          }
-		      </script>
-		      <a href="#" onclick="showReadme()"><?php echo _t("Show/Hide Readme") ?></a>
-		      <div id="readme" class="hide">
-		          <pre>
-		          <?php echo $readme; ?>
-		          </pre>
-		          <br/>
-		          <a href="#" onclick="showReadme()"><?php echo _t("Hide Readme") ?></a>
-		      </div>  
-		      
-		      <br/>
-		      <a href="http://www.gnu.org/licenses/lgpl.html" target="_blank"><?php echo _t("View License") ?></a>
-		<?php
-		
-		return;
-	}else{
-		echo _t("About page information cannot be generated.");
-		return;
-	}*/
+echo _t("<p>The software is intended for member states intending to trial the Common Alerting Protocol warning standard. ITU will also use this package in their Emergency Comm training.<br>");
 }
 
 function shn_home_mainmenu(){
 	global $global,$conf;
+
+/*** DEPRECATED BY waidyanatha [at] gmail [dot] com 2014-06-02
+** Move these details to the Messaging Module Menu
+
 	shn_mod_menuopen(_t($conf['mod_home_name']));
 	shn_mod_menuitem('about',_t('About us'),'home');
-/*	shn_mod_menuitem('contact',_t('Contact us'),'home');
-	shn_mod_menuitem('manual',_t('User Manual'),'home'); */
+	shn_mod_menuitem('contact',_t('Contact us'),'home');
+	shn_mod_menuitem('manual',_t('User Manual'),'home');
 
 	shn_mod_menuclose();
+*/
 	include $global['approot']."/inc/handler_mainmenu.inc";
+
 }
 
 ?>

@@ -74,7 +74,6 @@ function shn_msg_alerts_list_generator($type)
 function shn_msg_alert_grabber($id)
 {
 	//include 'shn_cap_form.inc';
-	//print "you're here";
 	$xml=shn_msg_get_xml_by_id($id);
 	if($xml!=null){		
 		_shn_msg_cap_form($xml,$id);
@@ -125,7 +124,8 @@ function create_tmp_xml_file($file, $tmp_content)
  * Get Type of XML - EDXL or CAP, and versions
  * @param $xml_doc Full XML Document
  * @return array('type'=>edxl/cap, 'version'=><version_number>)
- */
+ * @deprecated resolve dependencies before removing this function; we will stick to CAP messages only
+**/
 function shn_msg_get_xml_type($xml_doc)
 {
 	$type=null;

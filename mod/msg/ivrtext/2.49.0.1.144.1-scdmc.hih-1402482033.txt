@@ -1,0 +1,20 @@
+ Draft Alert effective for !
+
+A low priority landslide issued by 
+
+Headline: 
+Message: 2.49.0.1.144.1-scdmc.hih-1402482033 from capitus sent at 2014-06-11 05:06:41 is a Draft, Public () Alert.
+
+This Moderate category -  - event is Expected and is Observed.
+
+Description: 
+
+Response Type: 
+
+Instruction(s): 
+
+Alert is effective from:  and will expire on: 
+
+For more details use the following sources -
+Web: 
+call: 

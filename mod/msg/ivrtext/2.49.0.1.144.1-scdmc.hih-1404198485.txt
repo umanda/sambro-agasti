@@ -1,0 +1,20 @@
+Met Test Alert effective for Thailand!
+
+A high priority Flash Flood issued by Hydrological Department of Thailand
+
+Headline: Severe Flash Flood Advisory in affect for Ratnapura and Bangkok Districts
+Message: 2.49.0.1.144.1-scdmc.hih-1404198485 from cap-demo-srv@itupo.org sent at 2014-07-08 01:07:12 is a Test, Restricted (Flood Emergency Managers) Alert.
+
+This Severe category - Met - event is Expected and is Observed.
+
+Description: A severe flash flood advisory is being issued for bangkok. The Meteorological Department of Sri Lanka has reported 3000mm of rain in the Sabaragamuwa hills.The Hydrological Department has forecasted sever flash floods in the valley areas of Ratnapura and Kalutara Districts over the next twenty four hours.
+
+Response Type: Execute
+
+Instruction(s): All First-Responders are advised to prepare for the event and activate their emergency response plans.
+
+Alert is effective from: 2014-07-01T15:00:00+05:30 and will expire on: 2014-07-03T15:00:00+05:30
+
+For more details use the following sources -
+Web: http://cap.ituprojects.org/recentalerts/
+call: District Disaster Management Center Hotline

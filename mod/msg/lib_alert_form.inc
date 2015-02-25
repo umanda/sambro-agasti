@@ -8,9 +8,9 @@
 * that is available through the world-wide-web at the following URI:
 * http://www.gnu.org/copyleft/lesser.html
 *
-* @author		Pradeeper <pradeeper@respere.com>
+* @author	Pradeeper <pradeeper@respere.com>
 * @copyright    Respere - http://respere.com/
-* @package		sahana
+* @package	sahana
 * @subpackage   msg
 * @tutorial
 * @version		
@@ -40,6 +40,7 @@ require_once('lib_cap_js.inc');
     $id = time();
     $message_id = $conf['alert_identifier'].$id;
     $today = date("Y-m-d");
+    $user = $_SESSION['user'];
     //print $today;
     
     $status = array('Actual'=>'Actual', 'Exercise'=>'Exercise', 
@@ -58,9 +59,9 @@ require_once('lib_cap_js.inc');
     shn_form_hidden(array('time'=>$id,'stat'=>$status[_t("Actual")], 'name'=> $name, 'mode'=>$mode));
     shn_form_text(_t("Message Identifier"),'identifier',null,array('value'=>$message_id,'help'=>$help_identifire, 'req'=>true));
     shn_form_date(_t("Date Created"),'date_created',array('value'=>$today, 'req'=> true));
-    shn_form_text(_t("Sender"),'sender','class=""',array('help'=>$help_sender, 'req'=>true));
+    shn_form_text(_t("Sender"),'sender','class=""',array('value'=>$user,'help'=>$help_sender, 'req'=>true));
     shn_form_text(_t("File Type"),'file_type',null, array('value'=>'cap', 'req' => true));
-    shn_form_text(_t("File Version"),'file_version',null, array('value'=>'1.1', 'req' => true));
+    shn_form_text(_t("File Version"),'file_version',null, array('value'=>'1.2', 'req' => true));
     //shn_form_upload(_('Upload file'), 'upload', null);
     
     
@@ -83,8 +84,8 @@ function shn_msg_alert_form($target, $values=null)
 {
 	shn_form_fopen("alert_submit", null,array('req_message'=>true));
     	shn_form_fsopen("Basic Information");
-    		shn_form_text("Name","name","size='20'",array("req"=>true, 'value'=>$name));
-    		shn_form_hidden(array("target"=>"$target"));
+    	shn_form_text("Name","name","size='20'",array("req"=>true, 'value'=>$name));
+    	shn_form_hidden(array("target"=>"$target"));
     	shn_form_submit("Save", $submit_opts = null);	
     shn_form_fclose();	
 }
@@ -106,6 +107,8 @@ function shn_msg_select_template($alert_id=null, $sender=null)
 		<thead>
 			<tr>
 				<td>Template Name</td>
+				<td>Category</td>
+				<td>Event</td>
 				<td>Author</td>
 			</tr>
 		</thead>	
@@ -117,6 +120,8 @@ function shn_msg_select_template($alert_id=null, $sender=null)
 	
 			<tr>
 				<td><a href="index.php?mod=msg&act=pick_template&sender=<?php echo $sender?>&id=<?php echo $temp_list[$x]['id']?>&for=<?php echo $alert_id?>"><?php echo $temp_list[$x]['name'];?></a></td>
+				<td><?php echo $temp_list[$x]['category'];?></td>
+				<td><?php echo $temp_list[$x]['event'];?></td>
 				<td><?php echo $temp_list[$x]['author'];?></td>
 			</tr>
     			

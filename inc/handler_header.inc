@@ -21,7 +21,7 @@
 ?>
     <div id="header" class="clearfix">
         <?php  ?>
-        <h1><?=_t("Sahana FOSS Disaster Management System")?></h1>
+        <h1><?=_t("CAP-enabled ITU Software")?></h1>
         <?php 
             global $conf;
             if(file_exists($global['approot'].'conf/sysconf.inc.php'))

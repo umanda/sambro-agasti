@@ -261,9 +261,9 @@
       <xsl:if test = "b:info/b:area/b:areaDesc != ''">
       <tr >
       <td class="value">Area Description</td>
-        <td><xsl:value-of select="b:info/b:area/b:areaDesc"></xsl:value-of></td>
+        <td><xsl:value-of select="b:info/b:area/b:areaDesc"></xsl:value-of> (<xsl:value-of select="b:info/b:area/b:locationCategory"></xsl:value-of>)</td>
       </tr>
-      </xsl:if>
+<!--      </xsl:if>
       <xsl:if test = "b:info/b:area/b:locationCategory != ''">
       <tr >
       <td class="value">Location Category</td>
@@ -275,6 +275,7 @@
       <td class="value">Location Type</td>
         <td><xsl:value-of select="b:info/b:area/b:locationType"></xsl:value-of></td>
       </tr>
+-->
       </xsl:if>
       <xsl:if test = "b:info/b:area/b:polygon != ''">
       <tr >

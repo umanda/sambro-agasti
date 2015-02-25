@@ -28,7 +28,7 @@ Selectors are listed in their order of appearance in the html, where applicable.
 /* Neutralizing Styles
    ------------------------------------------------------------------------------- */
 /* Neutralize styling:: Elements we want to clean out entirely: */
-html, body, form, fieldset, textarea { margin: 0; padding: 0; font: 100%/125% Arial, Helvetica, sans-serif; }
+html, body{ margin: 0; padding: 0; font: 100%/125% Arial, Helvetica, sans-serif; background-color:#FFFFFF; }
 
 /* Neutralize styling:: Elements with a vertical margin: */
 h1, h2, h3, h4, h5, h6, p, pre,
@@ -73,11 +73,52 @@ td, th { padding:5px 5px 0 5px; border:1px solid #ccc; }
 /* hack for calender table on ie */
 table#scw td{ border:none;}
 
-
+#displ
+{
+/*background: url(img/head.png) #469 no-repeat right top;*/
+position:relative;
+background:#369;
+font-size:30px;
+text-align:center;
+color:#FFFFFF;
+font-family:garmond;
+padding-top:36px;
+}
 /* Now to layout elements... */
 div#container { }
+div#header {  
+border-bottom: #069 1px solid;
+padding: 0 1em; height: 50px; 
+position: relative; 
+background:#369;
+padding-top:36px;
+}
+#header_info{
+font-size:30px;
+text-align:center;
+color:#FFFFFF;
+font-family:garmond;
+letter-spacing:4px;
+}
+#clock{
+float:left;
+font-size:30px;
 
-	div#header { border-bottom: #069 1px solid; padding: 0 1em; height: 70px; position: relative; background: url(img/sahana_logo.png) #369 no-repeat left top; }
+color:#FFFFFF;
+font-family:garmond;
+}
+div#temp_footer { 
+padding: 0 1em; 
+height: 25px; 
+position: relative; 
+background:#369;
+font-size:30px;
+text-align:center;
+color:#FFFFFF;
+font-family:garmond;
+
+}
+/*	div#header {  border-bottom: #069 1px solid; padding: 0 1em; height: 70px; position: relative; background: url(img/sahana_logo.png) #369 no-repeat left top; }*/
 		div#header h1 { display:none; }
 
 		form.head { position:absolute; background:#369; color: white; right: 0; font-size:11px; }
@@ -118,13 +159,20 @@ div#container { }
     				div#modmenuwrap ul ul li a:visited { border-top: #08B 1px solid; border-bottom: #069 1px solid; }
     				div#modmenuwrap ul ul li a:hover { background-color: #069; border-top: #058 1px solid; border-bottom: #07A 1px solid; }
 
-			div#loginform { padding: 0 10px; width: 100px; 	margin-top: 1em; margin-bottom:6.2em; float: left; clear: left; }
-				div#loginform form fieldset { padding: 10px; border-color: #DED; border-width: 2px; border-style: groove; }
-				div#loginform form legend { font-size: 120%; color: #555; }
-				div#loginform form label { }
-				div#loginform form input#userName, 
-				div#loginform input#pswd { margin-right: 10px; width:140px; }
 
+
+div#loginform { position:absolute; right: 120px; top:3px;/*  background: url(img/wrapper_bk.png) #FFF repeat-x left top; padding: 0 10px; width: 400px; margin-top: 1em; margin-bottom:6.2em;  float: left; clear: left;*/ }
+
+div#loginform form fieldset { background: url(img/wrapper_bk.png) #FFF repeat-x repeat-y left top;padding: 10px; border-color: #DED; border-width: 2px; border-style: groove; }
+
+div#loginform form legend { font-size: 120%; color: #555;background: url(img/wrapper_bk.png) #FFF repeat-x repeat-y left top; }
+
+div#loginform form label { background: url(img/wrapper_bk.png) #FFF repeat-y left top;}
+
+div#loginform form input#userName,
+div#loginform input#pswd { margin-top: 28px; width:140px; }
+
+	
 			#openid_login { background: url(img/login-openid.gif) no-repeat; background-color: #fff; background-position: center left; color: #000; width: 122px; padding-left: 18px; }
 
 			div#openid_loginform { padding: 0 10px; width: 100px; margin-top: 1em; margin-bottom: 6.2em; float: left; clear: left; }
@@ -394,3 +442,19 @@ html>body #message_container div#message { font-size: 13px; } /*hacks for IE*/
 
 /* xajax loading message */
 #loadingMessage { position: absolute; left: 0; bottom: 0; background: #FF9; font-size: large; padding: 5px; }
+
+
+.alertList { border-style:hidden;  color:#777777 }
+table.alertList td{ border-style:hidden; padding:10px 30px 10px 0px}
+.alertList a {font-weight:bold}
+
+ td.unknown span { background-color:#E6E6E6; color:black;  padding:0px 10px; display:inline-block; width:100px;text-align:center;text-transform:capitalize;-moz-border-radius: 5px; -webkit-border-radius: 5px;}
+ td.high span { background-color:#F00; color:white; padding:0px 10px; display:inline-block; width:100px;text-align:center;text-transform:capitalize;-moz-border-radius: 5px; -webkit-border-radius: 5px;}
+ td.urgent span { background-color:#FFB900; color:black;  padding:0px 10px; display:inline-block; width:100px;text-align:center;text-transform:capitalize;-moz-border-radius: 5px; -webkit-border-radius: 5px;}
+ td.low span { background-color:#019D00; color:white; padding:0px 10px; display:inline-block; width:100px;text-align:center;text-transform:capitalize;-moz-border-radius: 5px; -webkit-border-radius: 5px;}
+
+
+.alertView {width:100%;font-size:1.07em;*margin-bottom:10px;}
+.alertView td{ padding: 4px;}
+.alertView .value{width:200px; text-align:right;padding-right:10px;background:#EEE}
+.alertView .title {background:#DDD; font-weight:bolder}

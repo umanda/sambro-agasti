@@ -1,6 +1,6 @@
 <?
 /**
- * sahana front controller, through which all actions are dispatched
+ * SAMBRO front controller, through which all actions are dispatched
  *
  * PHP version 4 and 5
  *
@@ -8,12 +8,12 @@
  * that is available through the world-wide-web at the following URI:
  * http://www.gnu.org/copyleft/lesser.html
  *
- * @package    Sahana - http://sahana.sourceforge.net
+ * @package    SAMBRO - https://github.com/waidyanatha/sambro-agasti 
  * @author     http://www.linux.lk/~chamindra
  * @copyright  Lanka Software Foundation - http://www.opensource.lk
  */
 
-// Specify the base location of the Sahana insallation
+// Specify the base location of the insallation
 // The base should not be exposed to the web for security reasons
 // only the www sub directory should be exposed to the web
 $APPROOT = realpath(dirname(__FILE__)).'/../';
@@ -148,9 +148,10 @@ function shn_main_front_controller()
 	$action = $global['action'];
 	$module = $global['module'];
 	$stream = $_REQUEST['stream'];
+
 	// check if the appropriate stream library exists
 
-	if( array_key_exists('stream', $_REQUEST) &&
+	if( /*array_key_exists('stream', $_REQUEST) &&*/
 	file_exists($APPROOT.'/inc/lib_stream_'.$stream.'.inc')) {
 
 		require_once ($APPROOT.'/inc/lib_stream_'.$stream.'.inc');
@@ -159,10 +160,10 @@ function shn_main_front_controller()
 	} else { // else revert to the html stream
 
 		if (array_key_exists('stream', $_REQUEST)) {
-			add_error(_t('The stream requested is not a valid stream'));
+			//add_error(_t('The stream requested is not a valid stream'));
 		}
 		require_once $APPROOT."/inc/lib_stream_html.inc";
-		$stream_ = null; // the default is html
+//		$stream_ = null; // the default is html
 	}
 
 	// Redirect the module based on the action performed
@@ -184,10 +185,11 @@ function shn_main_front_controller()
 	$module_file = $APPROOT.'mod/'.$module.'/main.inc';
 
 	// check if module exists (modules main.inc)
+
 	if (file_exists($module_file)) {
 		include($module_file);
 	} else { // default to the home page if the module main does not exist
-		add_error(_t('The requested module is not installed in Sahana'));
+		add_error(_t('The requested module is not installed in CAPITUS'));
 		$module = 'home';
 		$action = 'default';
 		include($APPROOT.'mod/home/main.inc');

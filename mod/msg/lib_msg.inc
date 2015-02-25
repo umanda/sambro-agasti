@@ -82,6 +82,7 @@ function shn_msg_send_short_message($receipients,$message)
 	//$url="http://api.clickatell.com/http/sendmsg?user=waidyanatha&password=kotchchi7281&api_id=3281715&to=$receipient&text=$msg";
 	$url="http://api.clickatell.com/http/sendmsg?user=itunbtc&password=YQcgOXcFAWGDHL&api_id=3401257&to=$receipient&text=$msg";
 	
+
 	$sms=file_get_contents($url);
 	if (isset($sms)){
           $status_sms[$receipient]=1;

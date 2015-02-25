@@ -1,4 +1,8 @@
 <?php
+/**
+ * @comment make changes
+**/
+
 global $global;
 //print $_GET['seq'];
 switch($_GET['seq'])
@@ -90,7 +94,7 @@ function _shn_alert_view($sql = NULL)
 	echo "<h2 align='center'>"._t('List of Alerts')."</h2>";
 	include_once 'lib_alert_db.inc';
 	shn_form_fopen('view_list_alert', null, null);
-	shn_form_fsopen(_t('Search'));
+	shn_form_fsopen(_t('Scroll down to view the SEARCH results'));
 	shn_form_text(_('Title'), 'title', 'size="25"', array('value'=>$title));
 	shn_form_opt_select('opt_msg_priority', _t('Priority'), 'priority', array('value'=>$priority));
 	$msgType = array(''=>'', 'Alert'=>'Alert', 'Update'=>'Update', 
